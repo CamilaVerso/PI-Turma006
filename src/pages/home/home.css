@@ -1,0 +1,17 @@
+
+ .container-home {
+     height: calc(100vh - 59px - 69px);
+     max-width: 1200px;
+     margin: 0 auto;
+
+     text-align: center;
+ }
+
+ h1{
+    margin: 2rem;
+    color: #1B4BD2;
+ }
+
+ h2{
+    color: #E43858;
+ }
