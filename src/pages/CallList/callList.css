@@ -1,0 +1,9 @@
+.container-list{
+    height: calc(100vh - 59px - 69px);
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+}

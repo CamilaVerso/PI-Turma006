@@ -2,9 +2,14 @@
  .container-home {
      height: calc(100vh - 59px - 69px);
      max-width: 1200px;
-     margin: 0 auto;
+   
+     
+ }
 
-     text-align: center;
+ .container-text{
+   margin: 0 auto;
+     
+   text-align: center;
  }
 
  h1{
@@ -14,4 +19,17 @@
 
  h2{
     color: #E43858;
+    margin-bottom: 2rem;
  }
+
+ .container-cards{
+   display: flex;
+   justify-content: space-around;
+   margin: 3rem 0;
+   flex-wrap: wrap;
+ }
+
+ .card{
+   margin: 1rem;
+ }
+
