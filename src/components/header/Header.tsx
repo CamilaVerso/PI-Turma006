@@ -24,8 +24,8 @@ const Header: React.FC = () => {
           {/* <Link to={"/login"}>Ir para o login</Link> */}
           <nav>
             <Stack direction="row" spacing={2}>
-              <a href="/login"><Button sx={{ color: '#1B4BD2', '&:hover': { color: '#824295' } }}>Login</Button></a>
-              <Button sx={{ color: '#1B4BD2', '&:hover': { color: '#824295' } }}>Cadastro</Button>              
+              <a href="/login"><Button sx={{ color: '#1B4BD2', '&:hover': { color: '#E43858' } }}>Login</Button></a>
+              <a href="/criar-conta"><Button sx={{ color: '#1B4BD2', '&:hover': { color: '#E43858' } }}>Cadastro</Button></a>              
             </Stack>
             {/* <ul>
               <li>Login</li>
