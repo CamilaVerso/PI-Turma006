@@ -7,3 +7,14 @@ a{
     text-decoration: none;
     text-align: center;
 }
+.card{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.container-card-list{
+    border-radius: 20px;
+}
