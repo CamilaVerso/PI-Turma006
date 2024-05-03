@@ -1,5 +1,6 @@
 import "./signUp.css";
 import logo from "../../assets/Centro de formação com sombra.png";
+import { Link } from "react-router-dom";
 
 const SignUp: React.FC = () => {
   return (
@@ -14,7 +15,9 @@ const SignUp: React.FC = () => {
         </div>
         <form action="" className="container-form">
           <div className="container-inputs">
-            <strong><p className="titulo-criarConta">Cadastrar Nova Conta</p></strong>
+            <strong>
+              <p className="titulo-criarConta">Cadastrar Nova Conta</p>
+            </strong>
 
             <label htmlFor="name">Nome</label>
             <input type="text" placeholder="Digite seu nome" />
@@ -27,7 +30,6 @@ const SignUp: React.FC = () => {
 
             <label htmlFor="ConfirmarSenha">Confirmar senha</label>
             <input type="password" placeholder="Digite sua Senha novamente" />
-
           </div>
           <button className="form-login-btn" type="submit">
             Cadastrar
@@ -35,9 +37,9 @@ const SignUp: React.FC = () => {
         </form>
         <p>
           Já tem uma conta?{" "}
-          <a href="/login">
+          <Link to="/login">
             <strong>Faça o login!</strong>
-          </a>
+          </Link>
         </p>
       </body>
     </>

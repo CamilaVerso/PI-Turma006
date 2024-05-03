@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import ingles from "../../assets/estados-unidos.png";
 import espanhol from "../../assets/espanha.png";
-import italia from '../../assets/italia.png'
+import italia from "../../assets/italia.png";
 
 const CallList: React.FC = () => {
   return (
@@ -30,9 +30,6 @@ const CallList: React.FC = () => {
                 <Typography gutterBottom variant="h5" component="div">
                   Inglês
                 </Typography>
-                {/* <Typography variant="body2" color="text.secondary">
-            Formulário de Cadastro
-          </Typography> */}
               </CardContent>
             </CardActionArea>
           </Card>
@@ -51,9 +48,6 @@ const CallList: React.FC = () => {
                 <Typography gutterBottom variant="h5" component="div">
                   Espanhol
                 </Typography>
-                {/* <Typography variant="body2" color="text.secondary">
-            Formulário de Cadastro
-          </Typography> */}
               </CardContent>
             </CardActionArea>
           </Card>
@@ -72,9 +66,6 @@ const CallList: React.FC = () => {
                 <Typography gutterBottom variant="h5" component="div">
                   Italiano
                 </Typography>
-                {/* <Typography variant="body2" color="text.secondary">
-            Formulário de Cadastro
-          </Typography> */}
               </CardContent>
             </CardActionArea>
           </Card>
