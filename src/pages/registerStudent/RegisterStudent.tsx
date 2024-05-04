@@ -3,6 +3,12 @@ import "./registerStudent.css";
 
 const RegisterStudent: React.FC = () => {
   const [text, setText] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+  };
+
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
     if (value.length <= 100) {
@@ -135,9 +141,162 @@ const RegisterStudent: React.FC = () => {
           maxLength={100}
           style={{ resize: "none" }}
         ></textarea>
+        <label htmlFor="rua">Rua: </label>
+        <input type="text" name="rua" />
 
-        
+        <label htmlFor="bairro">Bairro: </label>
+        <input type="text" name="bairro" />
 
+        <label htmlFor="cidade">Cidade: </label>
+        <input type="text" name="cidade" />
+
+        <label htmlFor="uf">UF: </label>
+        <input type="text" name="cidade" maxLength={2} />
+
+        <label htmlFor="cep">CEP: </label>
+        <input type="text" name="cep" maxLength={8} placeholder="00000000" />
+
+        <label htmlFor="telefone1">Telefone1: </label>
+        <input type="tel" id="telefone1" name="telefone1" maxLength={11} />
+
+        <p>Telefones de Emergência</p>
+        <label htmlFor="telefone2">Telefone2: </label>
+        <input type="tel" id="telefone2" name="telefone2" maxLength={11} />
+        <label htmlFor="telefone3">Telefone3: </label>
+        <input type="tel" id="telefone3" name="telefone3" maxLength={11} />
+
+        <label htmlFor="email">Email: </label>
+        <input type="email" id="email" name="email" />
+
+        <p>Dados do Responsável - Quando menor ou incapaz</p>
+        <label htmlFor="nome-res">Nome: </label>
+        <input type="text" id="nome-res" name="nome-res" />
+
+        <label htmlFor="cpf">CPF: </label>
+        <input type="text" id="cpf" name="cpf" maxLength={11} />
+
+        <label htmlFor="rg">RG: </label>
+        <input type="text" id="rg" name="rg" maxLength={11} />
+
+        <label htmlFor="telefone-con">Telefone para contato: </label>
+        <input type="tel" id="contato" name="contato" maxLength={11} />
+        <div>
+          <p>Dados Escolaridade</p>
+
+          <label htmlFor="ensino-fund">Ensino Fundamental: </label>
+          <label>
+            <input
+              type="radio"
+              name="ensino-fund"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="ensino-fund"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <label htmlFor="ensino-fund">
+            Se incompleto, informe o Ano/série
+          </label>
+          <input type="text" name="ensino-fund" />
+
+          <label htmlFor="ensino-med">Ensino Médio: </label>
+          <label>
+            <input
+              type="radio"
+              name="ensino-med"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="ensino-med"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <label htmlFor="ensino-med">Se incompleto, informe o Ano/série</label>
+          <input type="text" name="ensino-med" />
+
+          <label htmlFor="ensino-sup">Ensino Superior: </label>
+          <label>
+            <input
+              type="radio"
+              name="ensino-sup"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="ensino-sup"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <label htmlFor="ensino-sup">Observação: </label>
+          <input type="text" name="ensino-sup" />
+        </div>
+        <div>
+          <p>Dados da escola</p>
+
+          <label htmlFor="escola">Escola: </label>
+          <input type="text" name="escola" id="escola" />
+
+          <label htmlFor="municipio">Município: </label>
+          <input type="text" name="municipio" id="municipio" />
+
+          <label htmlFor="uf">UF: </label>
+          <input type="text" name="cidade" maxLength={2} />
+
+          <label htmlFor="tipo-ensino">Tipo de Ensino: </label>
+          <label>
+            <input
+              type="radio"
+              name="tipo-ensino"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            Regular
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="tipo-ensino"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            Educação Jovens e Adultos
+          </label>
+        </div>
+
+        <button type="submit">Cadastrar</button>
       </form>
     </body>
   );
