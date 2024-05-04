@@ -215,8 +215,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="ensino-med"
-              value="option1"
-              checked={selectedOption === "option1"}
+              value="option3"
+              checked={selectedOption === "option3"}
               onChange={handleOptionChange}
             />
             Completo
@@ -226,8 +226,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="ensino-med"
-              value="option2"
-              checked={selectedOption === "option2"}
+              value="option4"
+              checked={selectedOption === "option4"}
               onChange={handleOptionChange}
             />
             Incompleto
@@ -240,8 +240,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="ensino-sup"
-              value="option1"
-              checked={selectedOption === "option1"}
+              value="option5"
+              checked={selectedOption === "option5"}
               onChange={handleOptionChange}
             />
             Completo
@@ -251,8 +251,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="ensino-sup"
-              value="option2"
-              checked={selectedOption === "option2"}
+              value="option6"
+              checked={selectedOption === "option6"}
               onChange={handleOptionChange}
             />
             Incompleto
@@ -277,8 +277,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="tipo-ensino"
-              value="option1"
-              checked={selectedOption === "option1"}
+              value="option7"
+              checked={selectedOption === "option7"}
               onChange={handleOptionChange}
             />
             Regular
@@ -288,8 +288,8 @@ const RegisterStudent: React.FC = () => {
             <input
               type="radio"
               name="tipo-ensino"
-              value="option2"
-              checked={selectedOption === "option2"}
+              value="option8"
+              checked={selectedOption === "option8"}
               onChange={handleOptionChange}
             />
             Educação Jovens e Adultos
