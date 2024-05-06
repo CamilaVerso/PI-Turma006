@@ -66,46 +66,122 @@
     cursor: pointer;
   } */
 
-  .container-register {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .container-form-register {
-    margin-top: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  form > div {
-    flex: 0 0 50%;
-    padding: 10px;
-  }
-  
-  form > div label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  form input,
-  form select,
-  form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+.container-register {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  
-  
-  @media screen and (max-width: 600px) {
-    form > div {
-      flex: 0 0 100%;
-    }
+.container-form-register {
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form > div {
+  flex: 0 0 50%;
+  padding: 10px;
+}
+
+form > div label {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.escolaridade {
+  border: 2px solid black;
+}
+
+input[type="radio"] {
+  /* Ocultar o círculo do radio button */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Definir o tamanho do círculo */
+  width: 16px;
+  height: 16px;
+  /* Estilo do círculo */
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  /* Posição relativa para permitir ajustes */
+  position: relative;
+  /* Margem à esquerda para deixar espaço para o círculo */
+  margin-right: 10px;
+  /* margin-top: 0; */
+}
+
+/* Estilizar o círculo quando estiver marcado */
+input[type="radio"]:checked::before {
+  /* Criar um ponto dentro do círculo */
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333;
+  /* Posicionar o ponto no centro do círculo */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilizar o rótulo do radio button */
+label {
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 10px; */
+  margin-right: 10px;
+}
+
+.titulos {
+  display: block;
+  font-size: large;
+  font-weight: 600;
+  margin-right: 1rem;
+  width: 50vw;
+  margin-bottom: 0.5rem;
+}
+
+.titulos > label {
+  display: block;
+  width: 50vw;
+}
+
+.titulos-obs {
+  display: block;
+  width: 80%;
+  margin-top: 0.3rem;
+}
+
+.titulos-ens {
+  display: block;
+  font-weight: 500;
+  width: 50vw;
+  margin-bottom: 0.3rem;
+}
+
+span {
+  font-weight: 300;
+}
+
+
+@media screen and (max-width: 600px) {
+  form > div {
+    flex: 0 0 100%;
   }
-  
+}

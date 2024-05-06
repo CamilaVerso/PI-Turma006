@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as yup from "yup";
 import { SubmitHandler, useForm, UseFormReturn } from "react-hook-form";
-//import { yupResolver } from '@hookform/resolvers/yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import { FormData } from "../../utils/FormInterfaces";
 import "./registerStudent.css";
 
@@ -37,6 +37,7 @@ const buildSchema = () =>
 const RegisterStudent: React.FC = () => {
   const [text, setText] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOptionType, setSelectedOptionType] = useState("");
   const {
     register,
     handleSubmit,
@@ -45,6 +46,10 @@ const RegisterStudent: React.FC = () => {
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
+  };
+
+  const handleOptionChangeType = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOptionType(event.target.value);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -88,17 +93,16 @@ const RegisterStudent: React.FC = () => {
     <body className="container-register">
       <h1>Formulário de Matrícula</h1>
       <div className="container-form-register">
-        <form action="">
-          {/* <form onSubmit={handleSubmit(onsubmit)}> */}
-          <div className="select-idioma">
+        <form action="onSubmit">
+          
             <label htmlFor="cursoMatriculado">
               Selecione o curso desejado<span className="required">*</span>:
             </label>
             <select
-              //name="cursoMatriculado"
+              name="cursoMatriculado"
               id="curso-escolhido"
               required
-              //{...register('cursoMatriculado', { required: 'Selecione um curso' })}
+              
             >
               <option value="Selecione">Selecione</option>
               <option value="Espanhol">Espanhol</option>
@@ -108,8 +112,9 @@ const RegisterStudent: React.FC = () => {
             {errors.cursoMatriculado && (
               <div>{errors.cursoMatriculado.message}</div>
             )}
-          </div>
+         
           <div className="dados-pessoais">
+            <p className="titulos">Dados Pessoais: </p>
             <div className="partes">
               <label htmlFor="nome">
                 Nome Completo<span className="required">*</span>:{" "}
@@ -253,7 +258,7 @@ const RegisterStudent: React.FC = () => {
           </div>
 
           <div>
-            <p>Endereço</p>
+            <p className="titulos">Endereço:</p>
             <label htmlFor="rua">
               Rua<span className="required">*</span>:{" "}
             </label>
@@ -292,19 +297,21 @@ const RegisterStudent: React.FC = () => {
             </label>
             <input type="tel" id="telefone1" name="telefone1" maxLength={11} />
 
-            <p>Telefones de Emergência</p>
-            <label htmlFor="telefone2">Telefone2: </label>
-            <input type="tel" id="telefone2" name="telefone2" maxLength={11} />
-            <label htmlFor="telefone3">Telefone3: </label>
-            <input type="tel" id="telefone3" name="telefone3" maxLength={11} />
+            <p className="titulos">Telefones de Emergência</p>
+            
+            <input type="tel" id="telefone2" name="telefone2" maxLength={11} placeholder="Telefone 2" />
+            
+            <input type="tel" id="telefone3" name="telefone3" maxLength={11} placeholder="Telefone 3" />
 
             <label htmlFor="email">
               Email<span className="required">*</span>:{" "}
             </label>
             <input type="email" id="email" name="email" />
           </div>
-          <p>Dados do Responsável - Quando menor ou incapaz</p>
-          <label htmlFor="nome-res">Nome: </label>
+
+          <p className="titulos">Dados do Responsável <span>(Quando menor ou incapaz)</span>:</p>
+  
+          <label htmlFor="nome-res" className="label-name">Nome: </label>
           <input type="text" id="nome-res" name="nome-res" />
 
           <label htmlFor="cpf">CPF: </label>
@@ -315,10 +322,10 @@ const RegisterStudent: React.FC = () => {
 
           <label htmlFor="telefone-con">Telefone para contato: </label>
           <input type="tel" id="contato" name="contato" maxLength={11} />
-          <div>
-            <p>Dados Escolaridade</p>
+          
+            <p className="titulos">Dados Escolaridade:</p>
 
-            <label htmlFor="ensino-fund">Ensino Fundamental: </label>
+            <p className="titulos-ens">Ensino Fundamental: </p>
             <label>
               <input
                 type="radio"
@@ -340,12 +347,12 @@ const RegisterStudent: React.FC = () => {
               />
               Incompleto
             </label>
-            <label htmlFor="ensino-fund">
+            <p className="titulos-obs">
               Se incompleto, informe o Ano/série
-            </label>
+            </p>
             <input type="text" name="ensino-fund" />
 
-            <label htmlFor="ensino-med">Ensino Médio: </label>
+            <p className="titulos-ens">Ensino Médio: </p>
             <label>
               <input
                 type="radio"
@@ -367,12 +374,12 @@ const RegisterStudent: React.FC = () => {
               />
               Incompleto
             </label>
-            <label htmlFor="ensino-med">
+            <p className="titulos-obs">
               Se incompleto, informe o Ano/série
-            </label>
+            </p>
             <input type="text" name="ensino-med" />
 
-            <label htmlFor="ensino-sup">Ensino Superior: </label>
+            <p className="titulos-ens">Ensino Superior: </p>
             <label>
               <input
                 type="radio"
@@ -394,11 +401,10 @@ const RegisterStudent: React.FC = () => {
               />
               Incompleto
             </label>
-            <label htmlFor="ensino-sup">Observação: </label>
+            <p className="titulos-obs">Observação: </p>
             <input type="text" name="ensino-sup" />
-          </div>
-          <div>
-            <p>Dados da escola</p>
+          
+            <p className="titulos">Dados da escola:</p>
 
             <label htmlFor="escola">Escola: </label>
             <input type="text" name="escola" id="escola" />
@@ -409,14 +415,14 @@ const RegisterStudent: React.FC = () => {
             <label htmlFor="uf">UF: </label>
             <input type="text" name="cidade" maxLength={2} />
 
-            <label htmlFor="tipo-ensino">Tipo de Ensino: </label>
+            <p className="titulos">Tipo de Ensino: </p>
             <label>
               <input
                 type="radio"
                 name="tipo-ensino"
-                value="option7"
-                checked={selectedOption === "option7"}
-                onChange={handleOptionChange}
+                value="regular"
+                checked={selectedOptionType === "regular"}
+                onChange={handleOptionChangeType}
               />
               Regular
             </label>
@@ -425,15 +431,15 @@ const RegisterStudent: React.FC = () => {
               <input
                 type="radio"
                 name="tipo-ensino"
-                value="option8"
-                checked={selectedOption === "option8"}
-                onChange={handleOptionChange}
+                value="eja"
+                checked={selectedOptionType === "eja"}
+                onChange={handleOptionChangeType}
               />
               Educação Jovens e Adultos
             </label>
-          </div>
+          
 
-          <button className="form-login-btn" type="submit">
+          <button className="form-login-btn inscricao" type="submit">
             Cadastrar
           </button>
         </form>
