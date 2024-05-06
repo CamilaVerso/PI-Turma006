@@ -1,4 +1,111 @@
-.container-register{
+/* .container-register{
     height: calc(100vh - 59px - 69px);
     text-align: center;
+    background-color: brown;
+    margin: 0 auto;
+    
 }
+
+.container-form-register{
+  background-color: aquamarine;
+}
+
+.required {
+    color: red;
+    margin-left: 4px; 
+
+  .container-form-register{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .select-idioma{
+    margin-bottom: 1rem ;
+  }
+
+  .dados-pessoais{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+  }
+
+ 
+
+  .partes{
+    flex-direction: row;
+    margin-right: 2rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    input, select{
+      margin-right: .5rem;
+    }
+  }
+
+
+
+  .parte1 label{
+    margin-left: 1rem;
+  }
+
+  .partes-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    textarea{      
+      max-width: 60vw;
+    }
+  }
+
+  button{
+    cursor: pointer;
+  } */
+
+  .container-register {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .container-form-register {
+    margin-top: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  form > div {
+    flex: 0 0 50%;
+    padding: 10px;
+  }
+  
+  form > div label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  
+  
+  @media screen and (max-width: 600px) {
+    form > div {
+      flex: 0 0 100%;
+    }
+  }
+  
