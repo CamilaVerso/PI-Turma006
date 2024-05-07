@@ -1,0 +1,8 @@
+.container-formSent{
+    height: calc(100vh - 59px - 69px);
+    text-align: center;
+}
+
+.voltar{
+    cursor: pointer;
+}

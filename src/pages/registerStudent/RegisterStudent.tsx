@@ -1,40 +1,12 @@
-import { useState, useEffect } from "react";
-import * as yup from "yup";
-import { SubmitHandler, useForm, UseFormReturn } from "react-hook-form";
-// import { yupResolver } from '@hookform/resolvers/yup';
-import { FormData } from "../../utils/FormInterfaces";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { FormData, schema } from "../../utils/FormInterfaces";
+import { useNavigate } from "react-router-dom";
 import "./registerStudent.css";
 
-const buildSchema = () =>
-  yup.object().shape({
-    nome: yup.string().required("Nome do usuário é obrigatório"),
-    password: yup
-      .string()
-      .required("Senha é obrigatória")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)/,
-        "A senha deve ter caracteres e números"
-      ),
-    email: yup
-      .string()
-      .email("Digite um endereço de e-mail válido")
-      .required("O e-mail é obrigatório"),
-    cpf: yup
-      .string()
-      .matches(/^\d{11}$/, "Digite seu CPF corretamente")
-      .required("Campo obrigatório"),
-    cep: yup
-      .string()
-      .matches(/^\d{8}$/, "CEP inválido")
-      .required("Campo obrigatório"),
-    cidade: yup.string().required("Nome da Cidade é obrigatório"),
-    rua: yup.string().required("Campo de rua é obrigatório"),
-    numero: yup.number().required("Campo de número da casa é obrigatório"),
-    complemento: yup.string(),
-    uf: yup.string().required("Campo obrigatório"),
-  });
-
 const RegisterStudent: React.FC = () => {
+  const navigate = useNavigate();
   const [text, setText] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedOptionType, setSelectedOptionType] = useState("");
@@ -42,13 +14,29 @@ const RegisterStudent: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data: FormData) => {
+    schema
+      .validate(data)
+      .then(() => {
+        navigate("/form-enviado");
+        console.log(data);
+      })
+      .catch((validationErrors: string) => {
+        console.log(validationErrors);
+      });
+  };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
   };
 
-  const handleOptionChangeType = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOptionChangeType = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSelectedOptionType(event.target.value);
   };
 
@@ -58,102 +46,105 @@ const RegisterStudent: React.FC = () => {
       setText(value);
     }
   };
-  // const validationSchema = Yup.object().shape({
-  //   cursoMatriculado: Yup.string().required("Selecione um curso"),
-  // });
-
-  // const onSubmitWrapper = (data: FormData) => {
-  //   validationSchema
-  //     .validate(data, { abortEarly: false })
-  //     .then(() => {
-  //      return handleSubmit((data) => {
-
-  //         console.log(data);
-  //       })();
-  //     })
-  //     .catch((validationErrors) => {
-  //       console.error(validationErrors);
-  //       /
-  //     });
-  // };
-
-  // const onSubmit = (data: FormData) => {
-  //   validationSchema
-  //     .validate(data, { abortEarly: false })
-  //     .then((validatedData) => {
-  //       console.log(validatedData);
-  //       handleSubmit(data, () => {});
-  //     })
-  //     .catch((validationErrors) => {
-  //       console.error(validationErrors);
-  //     });
-  // };
 
   return (
-    <body className="container-register">
+    <div className="container-register">
       <h1>Formulário de Matrícula</h1>
       <div className="container-form-register">
-        <form action="onSubmit">
-          
-            <label htmlFor="cursoMatriculado">
-              Selecione o curso desejado<span className="required">*</span>:
-            </label>
-            <select
-              name="cursoMatriculado"
-              id="curso-escolhido"
-              required
-              
-            >
-              <option value="Selecione">Selecione</option>
-              <option value="Espanhol">Espanhol</option>
-              <option value="Inglês">Inglês</option>
-              <option value="Italiano">Italiano</option>
-            </select>
-            {errors.cursoMatriculado && (
-              <div>{errors.cursoMatriculado.message}</div>
-            )}
-         
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="cursoMatriculado">
+            Selecione o curso desejado<span className="required">*</span>:
+          </label>
+          <select
+            {...register("cursoMatriculado", { required: true })}
+            id="curso-escolhido"
+          >
+            <option value="" disabled selected>
+              Selecione
+            </option>
+            <option value="Espanhol">Espanhol</option>
+            <option value="Inglês">Inglês</option>
+            <option value="Italiano">Italiano</option>
+          </select>
+          {errors.cursoMatriculado && (
+            <div className="errors">{errors.cursoMatriculado.message}</div>
+          )}
+
           <div className="dados-pessoais">
             <p className="titulos">Dados Pessoais: </p>
+
             <div className="partes">
               <label htmlFor="nome">
                 Nome Completo<span className="required">*</span>:{" "}
               </label>
               <input
                 type="text"
-                name="nome"
                 id="nome-aluno"
                 placeholder="Digite o nome do aluno"
-                required
+                {...register("nome", { required: true })}
               />
-              <label htmlFor="dataNascimento">
-                Data de Nacimento<span className="required">*</span>:{" "}
-              </label>
-              <input type="date" name="dataNascimento" id="data-nasc-aluno" />
 
-              <label htmlFor="idade" id="idade-aluno">
-                Idade<span className="required">*</span>:
+              {errors.nome && (
+                <div className="errors">{errors.nome.message}</div>
+              )}
+
+              <label htmlFor="dataNascimento">
+                Data de Nascimento<span className="required">*</span>:{" "}
               </label>
-              <input type="number" min={6} max={100} id="idade-aluno" />
+              <input
+                type="text"
+                {...register("dataNascimento", { required: true })}
+                id="data-nasc-aluno"
+                placeholder="dd/mm/aaaa"
+                maxLength={10}
+              />
+              {errors.dataNascimento && (
+                <div className="errors">{errors.dataNascimento.message}</div>
+              )}
+
+              <label htmlFor="idade" id="idade">
+                Idade:
+              </label>
+              <input
+                type="text"
+                maxLength={2}
+                id="idade"
+                {...register("idade", { required: true })}
+              />
+              {errors.idade && (
+                <div className="errors">{errors.idade.message}</div>
+              )}
             </div>
 
             <div className="partes">
-              <label htmlFor="estadoCivil" id="">
+              <label htmlFor="estadoCivil" id="estadoCivil">
                 Estado Civil<span className="required">*</span>:
               </label>
-              <select name="estadoCivil" id="estado-civil">
-                <option value="selecione">Selecione</option>
+              <select
+                {...register("estadoCivil", { required: true })}
+                id="estado-civil"
+              >
+                <option value="" disabled selected>
+                  Selecione
+                </option>
                 <option value="solteiro">Solteiro(a)</option>
                 <option value="casado">Casado(a)</option>
                 <option value="divorciado">Divorciado(a)</option>
                 <option value="viuvo">Viúvo(a)</option>
               </select>
+              {errors.estadoCivil && (
+                <div role="alert" className="errors">
+                  {errors.estadoCivil.message}
+                </div>
+              )}
 
-              <label htmlFor="estado-civil" id="">
+              <label htmlFor="genero" id="genero">
                 Gênero:
               </label>
-              <select name="estado-civil" id="estado-civil">
-                <option value="selecione">Selecione</option>
+              <select id="genero" {...register("genero", { required: true })}>
+                <option value="" disabled selected>
+                  Selecione
+                </option>
                 <option value="homem_Cis">Homem Cis</option>
                 <option value="mulher_Cis">Mulher Cis</option>
                 <option value="homem_Trans">Homem Trans</option>
@@ -161,10 +152,17 @@ const RegisterStudent: React.FC = () => {
                 <option value="nao_binario">Não Binário</option>
                 <option value="outro">Outro/Prefiro não responder</option>
               </select>
+              {errors.genero && (
+                <div role="alert" className="errors">
+                  {errors.genero.message}
+                </div>
+              )}
 
-              <label htmlFor="orientacao-sexual">Orientação Sexual: </label>
-              <select name="orientacao-sexual" id="orientacao-sexual">
-                <option value="selecione">Selecione</option>
+              <label htmlFor="orientacaoSexual">Orientação Sexual: </label>
+              <select name="orientacaoSexual" id="orientacaoSexual">
+                <option value="" disabled selected>
+                  Selecione
+                </option>
                 <option value="hetero">Hetero</option>
                 <option value="homossexual">Homossexual</option>
                 <option value="bissexual">Bissexual</option>
@@ -175,21 +173,26 @@ const RegisterStudent: React.FC = () => {
             </div>
 
             <div className="partes">
-              <label htmlFor="nome-mae">
+              <label htmlFor="nomeMae">
                 Mãe<span className="required">*</span>:{" "}
               </label>
               <input
                 type="text"
-                name="nome-mae"
-                id="nome-mae"
+                id="nomeMae"
                 placeholder="Digite o nome da mãe do aluno"
+                {...register("nomeMae", { required: true })}
               />
+              {errors.nomeMae && (
+                <div role="alert" className="errors">
+                  {errors.nomeMae.message}
+                </div>
+              )}
 
-              <label htmlFor="nome-pai">Pai: </label>
+              <label htmlFor="nomePai">Pai: </label>
               <input
                 type="text"
-                name="nome-pai"
-                id="nome-pai"
+                name="nomePai"
+                id="nomePai"
                 placeholder="Digite o nome do pai do aluno"
               />
             </div>
@@ -200,36 +203,60 @@ const RegisterStudent: React.FC = () => {
               </label>
               <input
                 type="text"
-                name="nacionalidade"
                 id="nacionalidade"
                 placeholder="Digite a sua Nacionalidade"
+                {...register("nacionalidade", { required: true })}
               />
+              {errors.nacionalidade && (
+                <div role="alert" className="errors">
+                  {errors.nacionalidade.message}
+                </div>
+              )}
 
-              <label htmlFor="natural-estado">
+              <label htmlFor="naturalidade">
                 Naturalidade/Estado<span className="required">*</span>:{" "}
               </label>
               <input
                 type="text"
-                name="naturalidade"
                 id="naturalidade"
                 placeholder="Cidade/Estado"
+                {...register("naturalidade", { required: true })}
               />
-
-              </div>
-              <div className="partes">
-
-              <label htmlFor="cor-etnia">Cor/Etnia: </label>
-              <select name="cor-etnia" id="cor-etnia">
-                <option value="selecione">Selecione</option>
+              {errors.naturalidade && (
+                <div role="alert" className="errors">
+                  {errors.naturalidade.message}
+                </div>
+              )}
+            </div>
+            <div className="partes">
+              <label htmlFor="corEtnia">Cor/Etnia: </label>
+              <select
+                {...register("corEtnia", { required: true })}
+                id="corEtnia"
+              >
+                <option value="" disabled selected>
+                  Selecione
+                </option>
                 <option value="amarelo">Amarelo</option>
                 <option value="branca">Branca</option>
                 <option value="indigena">Indígena</option>
                 <option value="Parda">Parda</option>
                 <option value="Preta">Preta</option>
+                <option value="NaoDeclarado">Prefiro não declarar</option>
               </select>
-              <label htmlFor="sit-ocupacional">Situação Ocupacional: </label>
-              <select name="sit-ocupacional" id="sit-ocupacional">
-                <option value="selecione">Selecione</option>
+              {errors.corEtnia && (
+                <div role="alert" className="errors">
+                  {errors.corEtnia.message}
+                </div>
+              )}
+
+              <label htmlFor="situacaoOcupacional">
+                Situação Ocupacional:{" "}
+              </label>
+              <select name="situacaoOcupacional" id="situacaoOcupacional">
+                <option value="" disabled selected>
+                  Selecione
+                </option>
                 <option value="primeiro-emprego">1º Emprego</option>
                 <option value="aponsentado">Aponsentado</option>
                 <option value="autonomo">Autônomo</option>
@@ -241,19 +268,19 @@ const RegisterStudent: React.FC = () => {
             </div>
 
             <div className="partes-text">
-            <label htmlFor="saude">
-              Possui alguma deficiência/Problema de saúde?
-            </label>
-            <textarea
-              name="saude"
-              id="text-saude"
-              rows={3}
-              cols={40}
-              value={text}
-              onChange={handleChange}
-              maxLength={100}
-              style={{ resize: "none" }}
-            ></textarea>
+              <label htmlFor="saude">
+                Possui alguma deficiência/Problema de saúde?
+              </label>
+              <textarea
+                name="saude"
+                id="text-saude"
+                rows={3}
+                cols={40}
+                value={text}
+                onChange={handleChange}
+                maxLength={100}
+                style={{ resize: "none" }}
+              ></textarea>
             </div>
           </div>
 
@@ -262,7 +289,15 @@ const RegisterStudent: React.FC = () => {
             <label htmlFor="rua">
               Rua<span className="required">*</span>:{" "}
             </label>
-            <input type="text" name="rua" />
+            <input
+              type="text"
+              {...register("endereco.rua", { required: true })}
+            />
+            {errors.endereco && errors.endereco.rua && (
+              <div role="alert" className="errors">
+                {errors.endereco.rua.message}
+              </div>
+            )}
 
             <label htmlFor="complemento">Complemento: </label>
             <input type="text" name="complemento" />
@@ -270,48 +305,113 @@ const RegisterStudent: React.FC = () => {
             <label htmlFor="bairro">
               Bairro<span className="required">*</span>:{" "}
             </label>
-            <input type="text" name="bairro" />
+            <input
+              type="text"
+              {...register("endereco.bairro", { required: true })}
+            />
+            {errors.endereco && errors.endereco.bairro && (
+              <div role="alert" className="errors">
+                {errors.endereco.bairro.message}
+              </div>
+            )}
 
             <label htmlFor="cidade">
               Cidade<span className="required">*</span>:{" "}
             </label>
-            <input type="text" name="cidade" />
+            <input
+              type="text"
+              {...register("endereco.cidade", { required: true })}
+            />
+            {errors.endereco && errors.endereco.cidade && (
+              <div role="alert" className="errors">
+                {errors.endereco.cidade.message}
+              </div>
+            )}
 
             <label htmlFor="uf">
               UF<span className="required">*</span>:{" "}
             </label>
-            <input type="text" name="cidade" maxLength={2} />
-
+            <input
+              type="text"
+              {...register("endereco.uf", { required: true })}
+              maxLength={2}
+            />
+            {errors.endereco && errors.endereco.uf && (
+              <div role="alert" className="errors">
+                {errors.endereco.uf.message}
+              </div>
+            )}
             <label htmlFor="cep">
               CEP<span className="required">*</span>:{" "}
             </label>
             <input
               type="text"
-              name="cep"
               maxLength={8}
               placeholder="00000000"
+              {...register("endereco.cep", { required: true })}
             />
+            {errors.endereco && errors.endereco.cep && (
+              <div role="alert" className="errors">
+                {errors.endereco.cep.message}
+              </div>
+            )}
 
             <label htmlFor="telefone1">
               Telefone1<span className="required">*</span>:{" "}
             </label>
-            <input type="tel" id="telefone1" name="telefone1" maxLength={11} />
+            <input
+              type="tel"
+              id="telefone1"
+              maxLength={11}
+              {...register("endereco.telefone1", { required: true })}
+            />
+            {errors.endereco && errors.endereco.telefone1 && (
+              <div role="alert" className="errors">
+                {errors.endereco.telefone1.message}
+              </div>
+            )}
 
             <p className="titulos">Telefones de Emergência</p>
-            
-            <input type="tel" id="telefone2" name="telefone2" maxLength={11} placeholder="Telefone 2" />
-            
-            <input type="tel" id="telefone3" name="telefone3" maxLength={11} placeholder="Telefone 3" />
+
+            <input
+              type="tel"
+              id="telefone2"
+              name="telefone2"
+              maxLength={11}
+              placeholder="Telefone 2"
+            />
+
+            <input
+              type="tel"
+              id="telefone3"
+              name="telefone3"
+              maxLength={11}
+              placeholder="Telefone 3"
+            />
 
             <label htmlFor="email">
               Email<span className="required">*</span>:{" "}
             </label>
-            <input type="email" id="email" name="email" />
+            <input
+              type="email"
+              id="email"
+              {...register("endereco.email", { required: true })}
+            />
+
+            {errors.endereco && errors.endereco.email && (
+              <div role="alert" className="errors">
+                {errors.endereco.email.message}
+              </div>
+            )}
           </div>
 
-          <p className="titulos">Dados do Responsável <span>(Quando menor ou incapaz)</span>:</p>
-  
-          <label htmlFor="nome-res" className="label-name">Nome: </label>
+          <p className="titulos">
+            Dados do Responsável <span>(Quando menor ou incapaz)</span>:
+          </p>
+
+          <label htmlFor="nome-res" className="label-name">
+            Nome:{" "}
+          </label>
           <input type="text" id="nome-res" name="nome-res" />
 
           <label htmlFor="cpf">CPF: </label>
@@ -322,129 +422,124 @@ const RegisterStudent: React.FC = () => {
 
           <label htmlFor="telefone-con">Telefone para contato: </label>
           <input type="tel" id="contato" name="contato" maxLength={11} />
-          
-            <p className="titulos">Dados Escolaridade:</p>
 
-            <p className="titulos-ens">Ensino Fundamental: </p>
-            <label>
-              <input
-                type="radio"
-                name="ensino-fund"
-                value="option1"
-                checked={selectedOption === "option1"}
-                onChange={handleOptionChange}
-              />
-              Completo
-            </label>
+          <p className="titulos">Dados Escolaridade:</p>
 
-            <label>
-              <input
-                type="radio"
-                name="ensino-fund"
-                value="option2"
-                checked={selectedOption === "option2"}
-                onChange={handleOptionChange}
-              />
-              Incompleto
-            </label>
-            <p className="titulos-obs">
-              Se incompleto, informe o Ano/série
-            </p>
-            <input type="text" name="ensino-fund" />
+          <p className="titulos-ens">Ensino Fundamental: </p>
+          <label>
+            <input
+              type="radio"
+              name="ensino-fund"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
 
-            <p className="titulos-ens">Ensino Médio: </p>
-            <label>
-              <input
-                type="radio"
-                name="ensino-med"
-                value="option3"
-                checked={selectedOption === "option3"}
-                onChange={handleOptionChange}
-              />
-              Completo
-            </label>
+          <label>
+            <input
+              type="radio"
+              name="ensino-fund"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <p className="titulos-obs">Se incompleto, informe o Ano/série</p>
+          <input type="text" name="ensino-fund" />
 
-            <label>
-              <input
-                type="radio"
-                name="ensino-med"
-                value="option4"
-                checked={selectedOption === "option4"}
-                onChange={handleOptionChange}
-              />
-              Incompleto
-            </label>
-            <p className="titulos-obs">
-              Se incompleto, informe o Ano/série
-            </p>
-            <input type="text" name="ensino-med" />
+          <p className="titulos-ens">Ensino Médio: </p>
+          <label>
+            <input
+              type="radio"
+              name="ensino-med"
+              value="option3"
+              checked={selectedOption === "option3"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
 
-            <p className="titulos-ens">Ensino Superior: </p>
-            <label>
-              <input
-                type="radio"
-                name="ensino-sup"
-                value="option5"
-                checked={selectedOption === "option5"}
-                onChange={handleOptionChange}
-              />
-              Completo
-            </label>
+          <label>
+            <input
+              type="radio"
+              name="ensino-med"
+              value="option4"
+              checked={selectedOption === "option4"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <p className="titulos-obs">Se incompleto, informe o Ano/série</p>
+          <input type="text" name="ensino-med" />
 
-            <label>
-              <input
-                type="radio"
-                name="ensino-sup"
-                value="option6"
-                checked={selectedOption === "option6"}
-                onChange={handleOptionChange}
-              />
-              Incompleto
-            </label>
-            <p className="titulos-obs">Observação: </p>
-            <input type="text" name="ensino-sup" />
-          
-            <p className="titulos">Dados da escola:</p>
+          <p className="titulos-ens">Ensino Superior: </p>
+          <label>
+            <input
+              type="radio"
+              name="ensino-sup"
+              value="option5"
+              checked={selectedOption === "option5"}
+              onChange={handleOptionChange}
+            />
+            Completo
+          </label>
 
-            <label htmlFor="escola">Escola: </label>
-            <input type="text" name="escola" id="escola" />
+          <label>
+            <input
+              type="radio"
+              name="ensino-sup"
+              value="option6"
+              checked={selectedOption === "option6"}
+              onChange={handleOptionChange}
+            />
+            Incompleto
+          </label>
+          <p className="titulos-obs">Observação: </p>
+          <input type="text" name="ensino-sup" />
 
-            <label htmlFor="municipio">Município: </label>
-            <input type="text" name="municipio" id="municipio" />
+          <p className="titulos">Dados da escola:</p>
 
-            <label htmlFor="uf">UF: </label>
-            <input type="text" name="cidade" maxLength={2} />
+          <label htmlFor="escola">Escola: </label>
+          <input type="text" name="escola" id="escola" />
 
-            <p className="titulos">Tipo de Ensino: </p>
-            <label>
-              <input
-                type="radio"
-                name="tipo-ensino"
-                value="regular"
-                checked={selectedOptionType === "regular"}
-                onChange={handleOptionChangeType}
-              />
-              Regular
-            </label>
+          <label htmlFor="municipio">Município: </label>
+          <input type="text" name="municipio" id="municipio" />
 
-            <label>
-              <input
-                type="radio"
-                name="tipo-ensino"
-                value="eja"
-                checked={selectedOptionType === "eja"}
-                onChange={handleOptionChangeType}
-              />
-              Educação Jovens e Adultos
-            </label>
-          
+          <label htmlFor="uf">UF: </label>
+          <input type="text" name="cidade" maxLength={2} />
+
+          <p className="titulos">Tipo de Ensino:</p>
+          <label>
+            <input
+              type="radio"
+              name="tipo-ensino"
+              value="regular"
+              checked={selectedOptionType === "regular"}
+              onChange={handleOptionChangeType}
+            />
+            Regular
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="tipo-ensino"
+              value="eja"
+              checked={selectedOptionType === "eja"}
+              onChange={handleOptionChangeType}
+            />
+            Educação Jovens e Adultos
+          </label>
 
           <button className="form-login-btn inscricao" type="submit">
             Cadastrar
           </button>
         </form>
       </div>
-    </body>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ import CallList from "../pages/CallList/CallList";
 import SignUp from "../pages/signUp/SignUp";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import FormSent from "../pages/formSent/FormSent";
 
 const Router = () => {
   return (
@@ -18,6 +19,8 @@ const Router = () => {
         <Route path="/cadastro-aluno" element={<RegisterStudent />} />
         <Route path="/lista-de-chamada" element={<CallList />} />
         <Route path="/criar-conta" element={<SignUp />} />
+        <Route path="/form-enviado" element={<FormSent />} />
+
         
       </Routes>
       <Footer />
