@@ -1,8 +1,17 @@
 .container-formSent{
     height: calc(100vh - 59px - 69px);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .voltar{
     cursor: pointer;
 }
+
+.btn {
+    cursor: pointer;
+  }
+  
