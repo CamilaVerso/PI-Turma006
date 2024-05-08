@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/Centro_de_formação.png";
 
-
 const Header: React.FC = () => {
   return (
     <header>

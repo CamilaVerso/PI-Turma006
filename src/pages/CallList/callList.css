@@ -1,20 +1,20 @@
-.container-list{
-    height: calc(100vh - 59px - 69px);
-    text-align: center;
+.container-list {
+  height: calc(100vh - 59px - 69px);
+  text-align: center;
 }
 
-a{
-    text-decoration: none;
-    text-align: center;
+a {
+  text-decoration: none;
+  text-align: center;
 }
-.card{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.card {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
-.container-card-list{
-    border-radius: 20px;
+.container-card-list {
+  border-radius: 20px;
 }

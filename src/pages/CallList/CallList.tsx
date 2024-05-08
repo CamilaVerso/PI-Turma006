@@ -8,6 +8,7 @@ import { CardActionArea } from "@mui/material";
 import ingles from "../../assets/estados-unidos.png";
 import espanhol from "../../assets/espanha.png";
 import italia from "../../assets/italia.png";
+import { Link } from "react-router-dom";
 
 const CallList: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const CallList: React.FC = () => {
       <p>Escolha o curso</p>
 
       <div className="card">
-        <a href="">
+        <Link to="*">
           <Card sx={{ maxWidth: 360 }}>
             <CardActionArea>
               <CardMedia
@@ -33,8 +34,8 @@ const CallList: React.FC = () => {
               </CardContent>
             </CardActionArea>
           </Card>
-        </a>
-        <a href="">
+        </Link>
+        <Link to="*">
           <Card sx={{ maxWidth: 360 }}>
             <CardActionArea>
               <CardMedia
@@ -51,8 +52,8 @@ const CallList: React.FC = () => {
               </CardContent>
             </CardActionArea>
           </Card>
-        </a>
-        <a href="">
+        </Link>
+        <Link to="*">
           <Card sx={{ maxWidth: 360 }}>
             <CardActionArea>
               <CardMedia
@@ -69,7 +70,7 @@ const CallList: React.FC = () => {
               </CardContent>
             </CardActionArea>
           </Card>
-        </a>
+        </Link>
       </div>
     </body>
   );

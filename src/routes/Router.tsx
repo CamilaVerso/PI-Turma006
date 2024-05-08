@@ -8,6 +8,7 @@ import SignUp from "../pages/signUp/SignUp";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import FormSent from "../pages/formSent/FormSent";
+import NotFound from "../pages/notFound/NotFound";
 
 const Router = () => {
   return (
@@ -20,8 +21,7 @@ const Router = () => {
         <Route path="/lista-de-chamada" element={<CallList />} />
         <Route path="/criar-conta" element={<SignUp />} />
         <Route path="/form-enviado" element={<FormSent />} />
-
-        
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
