@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <main>
         <div className="container-home">
           <div className="container-text">
-            <h1>Centro de Formação Carlos Kopcka</h1>
+            <h1>Centro de Formação Carlos Kopcak</h1>
             <h2>Imersão em Línguas</h2>
           </div>
 
