@@ -1,6 +1,17 @@
+.signUp{
+  height: calc(100vh - 59px - 69px);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .titulo-criarConta {
   text-align: center;
   margin: 1rem;
   font-size: 1.5rem;
   color: var(--secundary-color);
+}
+
+.btn-cadastrar{
+  margin-bottom: 4rem;
 }
