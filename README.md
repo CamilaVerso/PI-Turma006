@@ -56,13 +56,35 @@ Criar uma aplicação para organizar as informações do centro de idiomas de fo
 
 ## 4. Detalhamento 
 
+Levando em consideração o nível de conhecimento técnico da equipe que presta serviços para o Centro de Formação, decidimos por utilizar um padrão simples, intuitivo e com cores claras.
+
+Todas as telas são responsivas sendo possível utilizar dispositivos móveis para realizar as funções desejadas.
+
+Para o formulário de matrícula de alunos, decidimos manter o mesmo formato que o impresso que vem sendo utilizado até o momento, com o intuito de minimizar o impacto da transição do papel para o digital.
+
+Todos os *inputs* obrigatórios possuem validações e mensagens de erros descritivos.
+
+Para as funcionalidades que ainda não foram implementadas, criamos uma página informativa, conforme imagem abaixo:
+
+<img src="./src/assets/pagina_em_construcao.png" alt="Imagem da página informando que a página da funcionalidade desejada se encontra em construção" title="Página em Construção">
+
+Posteriormente esta página será designada para a funcionalidade de "Página não localizada" (*page not-found*).
+
+
+
+
 ### Paleta de Cores
 
-<img src="./assets/Paleta-Farmacia.webp" alt="paleta de cores utilizada no projeto, tons de vermelho, azul, verde, cinza e branco" title="Paleta de Cores">
+- Decidimos tomar como base as cores da *logo* do centro de formação para usarmos em nossa paleta de cores.
 
-### Mapa do Site
+Abaixo, imagem com as cores principais utilizadas:
+<img src="./src/assets/Paleta_PI.png" alt="paleta de cores utilizada no projeto, tons de vermelho, azul,  e roxo" title="Paleta de Cores">
 
-<img src="./assets/Mapa do Site.webp" alt="Mapa de navegabilidade do site" title="Mapa do Site">
+### Atualizações Futuras
+
+- Implementação do banco de dados;
+- Após a implementação do banco de dados somente será possível acessar as telas de "Formulário de Matrícula" e "Lista de Presença" se estiver *logado* no sistema.
+- Para a tela de "Lista de presença" a ideia é conter uma tabela dinâmica onde seja possível filtrar os alunos pelo idioma e turma, após o filtro será possível registrar a presença ou ausência do mesmo.
 
 
 
@@ -70,7 +92,7 @@ Criar uma aplicação para organizar as informações do centro de idiomas de fo
 
 ## 5. Instruções para acessar o projeto
 
-Este projeto tem como requisito o *deploy* pelo *Vercel*, portando pode ser visualizado [clicando aqui](https://pi-turma006.vercel.app/)
+Este projeto tem como requisito o *deploy*, escolhemos então fazê-lo pelo *Vercel*, portanto o mesmo pode ser visualizado [clicando aqui](https://pi-turma006.vercel.app/)
 
  <br>
 
@@ -109,61 +131,3 @@ Este projeto tem como requisito o *deploy* pelo *Vercel*, portando pode ser visu
 | Sandra Maria Felix de Araujo         | 2222006              |
 | Thais Stella Teixeira                | 1402571              |
 
-
-
-
-
-
-
-
-
-
-
-------------------------------------------------------------------------------------------------
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
