@@ -11,11 +11,11 @@
 
 h1 {
   margin: 2rem;
-  color: #1b4bd2;
+  color: var(--secundary-color);
 }
 
 h2 {
-  color: #e43858;
+  color: var(--primary-color);
   margin-bottom: 2rem;
 }
 

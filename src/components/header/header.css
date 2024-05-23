@@ -1,7 +1,7 @@
 header {
   background-color: #f7f7f7;
   width: 100vw;
-  border-bottom: 2px solid #824295;
+  border-bottom: 2px solid var(--tertiary-color);
 }
 
 .container-header {
@@ -46,7 +46,7 @@ header {
 }
 
 .custom-button:hover {
-  color: #824295;
+  color: var(--tertiary-color);
 }
 
 nav {

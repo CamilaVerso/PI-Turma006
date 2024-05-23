@@ -15,7 +15,6 @@
 
 .container-form {
     margin: 0 auto;
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +32,7 @@
 
 .container-inputs label {
     text-align: left;
-    color: #1B4BD2;
+    color: var(--secundary-color);
 }
 
 .container-inputs input {
@@ -56,7 +55,7 @@
     border-radius: 8px;
     height: 2rem;
     border: none;
-    background-color: #1B4BD2;
+    background-color: var(--secundary-color);
     cursor: pointer;    
 }
 
