@@ -45,15 +45,36 @@ const SignUp: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    setTimeout(() => {
-      setSuccessAlert(true);
-      setTimeout(() => {
-        setSuccessAlert(false);
-        setRedirected(true);
-      }, 2000);
-    }, 500);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await fetch('http://localhost:1337/api/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: {
+            nome: data.name,
+            email: data.email,
+            senha: data.password,
+          },
+        }),
+      });
+  
+      if (response.ok) {
+        setSuccessAlert(true);
+        setTimeout(() => {
+          setSuccessAlert(false);
+          setRedirected(true);
+        }, 2000);
+      } else {
+        setErrorAlert(true);
+      }
+    } catch (error) {
+      setErrorAlert(true);
+    }
   };
+  
 
   useEffect(() => {
     if (redirected) {
