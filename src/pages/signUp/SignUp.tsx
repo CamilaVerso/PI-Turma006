@@ -13,20 +13,21 @@ interface FormData {
   email: string;
   password: string;
   confirmPassword: string;
+  role: string; 
+  courses?: string[]; 
 }
+
 
 const SignUp: React.FC = () => {
   const [successAlert, setSuccessAlert] = useState(false);
   const [errorAlert, setErrorAlert] = useState(false);
   const [redirected, setRedirected] = useState(false);
+  const [role, setRole] = useState<string>("administrativo"); // Perfil selecionado
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
     name: yup.string().required("Nome é obrigatório"),
-    email: yup
-      .string()
-      .email("E-mail inválido")
-      .required("E-mail é obrigatório"),
+    email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
     password: yup
       .string()
       .min(6, "A senha deve ter pelo menos 6 caracteres")
@@ -35,7 +36,16 @@ const SignUp: React.FC = () => {
       .string()
       .oneOf([yup.ref("password"), ""], "As senhas devem coincidir")
       .required("Confirmação de senha é obrigatória"),
+    role: yup.string().required("Selecione o perfil"),
+    courses: yup.array().test('courses-validation', 'Selecione ao menos um curso para professores', function (value) {
+      const { role } = this.parent; 
+      if (role === 'professor' && (!value || value.length === 0)) {
+        return false;
+      }
+      return true; 
+    }),
   });
+
 
   const {
     register,
@@ -46,6 +56,7 @@ const SignUp: React.FC = () => {
   });
 
   const onSubmit = (data: FormData) => {
+    console.log("Dados enviados:", data);
     setTimeout(() => {
       setSuccessAlert(true);
       setTimeout(() => {
@@ -101,7 +112,6 @@ const SignUp: React.FC = () => {
               placeholder="Digite seu nome"
               {...register("name", { required: true })}
             />
-
             {errors.name && <div className="errors">{errors.name.message}</div>}
 
             <label htmlFor="email">E-mail</label>
@@ -110,18 +120,16 @@ const SignUp: React.FC = () => {
               placeholder="Digite seu e-mail"
               {...register("email", { required: true })}
             />
-
             {errors.email && (
               <div className="errors">{errors.email.message}</div>
             )}
 
-            <label htmlFor="senha">Senha</label>
+            <label htmlFor="password">Senha</label>
             <input
               type="password"
               placeholder="Digite sua Senha"
               {...register("password", { required: true })}
             />
-
             {errors.password && (
               <div className="errors">{errors.password.message}</div>
             )}
@@ -132,17 +140,64 @@ const SignUp: React.FC = () => {
               placeholder="Digite sua Senha novamente"
               {...register("confirmPassword", { required: true })}
             />
-
             {errors.confirmPassword && (
               <div className="errors">{errors.confirmPassword.message}</div>
             )}
+
+            <label htmlFor="role">Selecione o perfil</label>
+            <select id="select-perfil" 
+              {...register("role", { required: true })}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="administrativo">Administrativo</option>
+              <option value="professor">Professor</option>
+            </select>
+            {errors.role && <div className="errors">{errors.role.message}</div>}
+
+            {role === "professor" && (
+              <>
+                <label htmlFor="courses">Selecione o(s) curso(s)</label>
+                <div className="idiomas">
+                  <div className="idioma">
+                    <input
+                      type="checkbox"
+                      id="ingles" 
+                      value="Inglês"
+                      {...register("courses")}
+                    />
+                    <label htmlFor="ingles">Inglês</label>
+                  </div>
+
+                  <div className="idioma">
+                    <input
+                      type="checkbox"
+                      id="espanhol"
+                      value="Espanhol"
+                      {...register("courses")}
+                    />
+                    <label htmlFor="espanhol">Espanhol</label>
+                  </div>
+
+                  <div className="idioma">
+                    <input
+                      type="checkbox"
+                      id="italiano"
+                      value="Italiano"
+                      {...register("courses")}
+                    />
+                    <label htmlFor="italiano">Italiano</label>
+                  </div>
+                </div>
+                {errors.courses && (
+                  <div className="errors">{errors.courses.message}</div>
+                )}
+              </>
+            )}
           </div>
 
-          
           <button className="form-login-btn btn-cadastrar" type="submit">
             Cadastrar
           </button>
-          
         </form>
 
         <p>
