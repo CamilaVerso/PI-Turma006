@@ -145,14 +145,15 @@ Este projeto tem como requisito o *deploy*, escolhemos então fazê-lo pelo *Ver
   Para esta segunda parte do Projeto Integrador verificamos a necessidade de criar perfis diferentes no momento do cadastro, para isso realizamos uma alteração na tela de Cadastro.
 Anteriormente estava assim:
 
-<img src="./src/assets/" alt="tela de cadastro anterior sem a opção de perfil" title="tela de cadastro anterior">
+<img src="./src/assets/TelaCadastroSemRole.jpg" alt="tela de cadastro anterior sem a opção de perfil" title="tela de cadastro anterior">
 
 Com a atualização, para realizar o cadastro é necessário informar qual perfil gostaria de se cadastrar. Deverá realizar a escolha entre o perfil "Administrativo" e o perfil "Professor", para o perfil professor deverá ainda indicar para qual idioma está designado, lembrando que é possível informar mais de um idioma.
 
 Segue abaixo imagens da alteração realizada:
 
-<img src="./src/assets/" alt="tela de cadastro atualizada com a opção de perfil" title="tela de cadastro atualizada com os perfis">
-<img src="./src/assets/" alt="tela de cadastro atualizada com as opções de idiomas para o perfil de professor" title="tela de cadastro atualizada com as opções de idiomas">
+<img src="./src/assets/TelaCadastroAtualizada1.jpg" alt="tela de cadastro atualizada com a opção de perfil" title="tela de cadastro atualizada com os perfis">
+<img src="./src/assets/TelaCadastroAtualizada2.jpg" alt="tela de cadastro atualizada com as opções de perfis" title="tela de cadastro atualizada com as opções de perfis">
+<img src="./src/assets/TelaCadastroAtualizadaIdiomas.jpg" alt="tela de cadastro atualizada com as opções de idiomas para o perfil de professor" title="tela de cadastro atualizada com as opções de idiomas">
 
 
 
