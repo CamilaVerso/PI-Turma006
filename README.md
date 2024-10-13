@@ -151,8 +151,13 @@ Com a atualização, para realizar o cadastro é necessário informar qual perfi
 
 Segue abaixo imagens da alteração realizada:
 
+Tela de Cadastro atualizada:<br>
 <img src="./src/assets/TelaCadastroAtualizada1.jpg" alt="tela de cadastro atualizada com a opção de perfil" title="tela de cadastro atualizada com os perfis">
+
+Tela de cadastro atualizada com as opções de perfis:
 <img src="./src/assets/TelaCadastroAtualizada2.jpg" alt="tela de cadastro atualizada com as opções de perfis" title="tela de cadastro atualizada com as opções de perfis">
+
+Recorte da tela de cadastro com as opções de idiomas para o perfil de professor:
 <img src="./src/assets/TelaCadastroAtualizadaIdiomas.jpg" alt="tela de cadastro atualizada com as opções de idiomas para o perfil de professor" title="tela de cadastro atualizada com as opções de idiomas">
 
 
