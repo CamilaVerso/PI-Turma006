@@ -21,6 +21,11 @@
 * [6. Tecnologias Utilizadas](#6-tecnologias-utilizadas)
 * [7. Desenvolvedores](#7-desenvolvedores)
 
+## Parte II
+### Projeto Integrador em Computação II
+
+* [8. Atualizações](#8-atualizações)
+* [9. Lista Desenvolvedores Atualizada](#9-lista-desenvolvedores-atualizada)
 
 ***
 
@@ -131,3 +136,35 @@ Este projeto tem como requisito o *deploy*, escolhemos então fazê-lo pelo *Ver
 | Sandra Maria Felix de Araujo         | 2222006              |
 | Thais Stella Teixeira                | 1402571              |
 
+***
+
+## Projeto Integrador em Computação II
+
+  ### 8. Atualizações 
+
+  Para esta segunda parte do Projeto Integrador verificamos a necessidade de criar perfis diferentes no momento do cadastro, para isso realizamos uma alteração na tela de Cadastro.
+Anteriormente estava assim:
+
+<img src="./src/assets/" alt="tela de cadastro anterior sem a opção de perfil" title="tela de cadastro anterior">
+
+Com a atualização, para realizar o cadastro é necessário informar qual perfil gostaria de se cadastrar. Deverá realizar a escolha entre o perfil "Administrativo" e o perfil "Professor", para o perfil professor deverá ainda indicar para qual idioma está designado, lembrando que é possível informar mais de um idioma.
+
+Segue abaixo imagens da alteração realizada:
+
+<img src="./src/assets/" alt="tela de cadastro atualizada com a opção de perfil" title="tela de cadastro atualizada com os perfis">
+<img src="./src/assets/" alt="tela de cadastro atualizada com as opções de idiomas para o perfil de professor" title="tela de cadastro atualizada com as opções de idiomas">
+
+
+
+  ### 9. Lista Desenvolvedores Atualizada
+
+| Aluno                                | RA                   |
+| ------------------------------------ | ---------------------|
+| Camila Nazaré Pereira Gonçalves      | 23208252             |
+| Danielle dos Santos Bonfim           | 2220085              |
+| Edcarlos de Sousa Santos             | 2205440              |
+| Fernando Caires Borges Gonçalves     | 23203515             |
+| Fernando Barbosa Ferraz              | 2222816              |
+| Mauricio Neves Pereira               | 2008309              |
+| Sandra Maria Felix de Araujo         | 2222006              |
+| Thais Stella Teixeira                | 1402571              |
