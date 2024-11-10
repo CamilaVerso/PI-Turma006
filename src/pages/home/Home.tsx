@@ -10,6 +10,8 @@ import lista from "../../assets/undraw_Collaboration_re_vyau.png";
 import "./home.css";
 
 const Home: React.FC = () => {
+
+
   return (
     <>
       <main aria-label="Página inicial do Centro de Formação Carlos Kopcak">
@@ -61,6 +63,13 @@ const Home: React.FC = () => {
               </Link>
             </div>
           </div>
+          <button
+            className="btn-moodle"
+            aria-label="Área do Professor"
+            onClick={() => window.open("https://moodle.org", "_blank")}
+          >
+            Área do Professor
+          </button>
         </div>
       </main>
     </>

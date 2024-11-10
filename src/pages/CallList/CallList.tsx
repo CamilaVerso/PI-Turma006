@@ -70,7 +70,7 @@ const CallList: React.FC = () => {
   return (
     <div className="page-container">
       <div className="container-list">
-      <h1>Lista de chamada</h1>
+      <h1>Lista de Presença</h1>
       <p>Escolha o curso</p>
 
       <div className="card">

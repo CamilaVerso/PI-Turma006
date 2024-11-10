@@ -2,6 +2,8 @@
   height: calc(100vh - 59px - 69px);
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;  
+  text-align: center;
 }
 
 .container-text {
@@ -28,4 +30,46 @@ h2 {
 
 .card {
   margin: 1rem;
+}
+
+.btn-moodle{
+  width: 21.875rem;
+    display: inline-block;
+    margin-top: 2rem;
+    color: #fff;
+    border-radius: 8px;
+    height: 2rem;
+    border: none;
+    background-color: var(--secundary-color);
+    cursor: pointer;   
+    justify-content: center;
+}
+
+.btn-moodle:hover{
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+@media (max-width:640px) {
+  body {
+    overflow-y: auto;
+  }
+
+  h1, h2{
+    font-size: large;
+  }
+  .container-home {
+    height: auto; 
+    padding-bottom: 2rem; 
+  }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .btn-moodle{
+    width: 80%;
+  }
 }

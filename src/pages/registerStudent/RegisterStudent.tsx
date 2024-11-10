@@ -114,7 +114,7 @@ const RegisterStudent: React.FC = () => {
               )}
 
               <label htmlFor="idade" id="idade">
-                Idade:
+                Idade<span className="required">*</span>:{" "}
               </label>
               <input
                 type="text"
@@ -150,7 +150,7 @@ const RegisterStudent: React.FC = () => {
               )}
 
               <label htmlFor="genero" id="genero">
-                Gênero:
+                Gênero<span className="required">*</span>:{" "}
               </label>
               <select id="genero" {...register("genero", { required: true })}>
                 <option value="" disabled selected>
@@ -240,7 +240,7 @@ const RegisterStudent: React.FC = () => {
               )}
             </div>
             <div className="partes">
-              <label htmlFor="corEtnia">Cor/Etnia: </label>
+              <label htmlFor="corEtnia">Cor/Etnia<span className="required">*</span>:{" "} </label>
               <select
                 {...register("corEtnia", { required: true })}
                 id="corEtnia"

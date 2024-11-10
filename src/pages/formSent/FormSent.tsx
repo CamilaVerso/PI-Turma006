@@ -6,7 +6,7 @@ const FormSent: React.FC = () => {
   return (
     <main className="container-formSent" aria-live="polite">
 
-      <h1>Inscrição realizada</h1>
+      <h1>Matrícula realizada</h1>
 
       <div className="img-g">
         <img
