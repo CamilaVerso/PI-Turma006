@@ -118,9 +118,9 @@ const Login: React.FC = () => {
         )}
         </form>
         <p>
-          Ainda não tem conta?
+          Ainda não tem conta? 
           <Link to="/criar-conta" aria-label="Criar uma nova conta">
-            <strong>Cadastre-se aqui</strong>
+            <strong> Cadastre-se aqui</strong>
           </Link>
         </p>
       </div>
