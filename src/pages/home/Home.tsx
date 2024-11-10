@@ -66,7 +66,7 @@ const Home: React.FC = () => {
           <button
             className="btn-moodle"
             aria-label="Área do Professor"
-            onClick={() => window.open("https://moodle.org", "_blank")}
+            onClick={() => window.open("https://uabdiadema.moodiy.club/login/index.php", "_blank")}
           >
             Área do Professor
           </button>
