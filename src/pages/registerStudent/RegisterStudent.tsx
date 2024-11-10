@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FormData, schema } from "../../utils/FormInterfaces";
 import { useNavigate } from "react-router-dom";
 import { cadastrarAluno } from "../../utils/firestoreService";
+
 import "./registerStudent.css";
 
 const RegisterStudent: React.FC = () => {
@@ -11,7 +12,6 @@ const RegisterStudent: React.FC = () => {
   const [text, setText] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedOptionType, setSelectedOptionType] = useState("");
-  
   const {
     register,
     handleSubmit,
@@ -77,6 +77,7 @@ const RegisterStudent: React.FC = () => {
           </select>
           {errors.cursoMatriculado && (
             <div className="errors" role="alert">{errors.cursoMatriculado.message}</div>
+
           )}
 
           <div className="dados-pessoais">
@@ -437,8 +438,8 @@ const RegisterStudent: React.FC = () => {
           <label htmlFor="telefone-con">Telefone para contato: </label>
           <input type="tel" id="contato" name="contato" maxLength={11} />
           </div>
-
           <div>
+
           <p className="titulos">Dados Escolaridade:</p>
 
           <p className="titulos-ens">Ensino Fundamental: </p>
@@ -528,6 +529,7 @@ const RegisterStudent: React.FC = () => {
           <input type="text" name="cidade" maxLength={2} />
           </div>
           <div>
+
           <p className="titulos">Tipo de Ensino:</p>
           <label>
             <input

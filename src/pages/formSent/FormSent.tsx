@@ -5,6 +5,7 @@ import send from "../../assets/undraw_Completing_re_i7ap.png"
 const FormSent: React.FC = () => {
   return (
     <main className="container-formSent" aria-live="polite">
+
       <h1>Inscrição realizada</h1>
 
       <div className="img-g">

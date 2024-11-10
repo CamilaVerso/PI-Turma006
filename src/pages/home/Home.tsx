@@ -13,6 +13,7 @@ const Home: React.FC = () => {
   return (
     <>
       <main aria-label="Página inicial do Centro de Formação Carlos Kopcak">
+
         <div className="container-home">
           <div className="container-text">
             <h1>Centro de Formação Carlos Kopcak</h1>
@@ -41,6 +42,7 @@ const Home: React.FC = () => {
             </div>
             <div className="card" role="button">
               <Link to="/lista-de-chamada" aria-label="Página de lista de presença">
+
                 <Card sx={{ maxWidth: 360 }}>
                   <CardActionArea>
                     <CardMedia

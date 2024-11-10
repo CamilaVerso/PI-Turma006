@@ -30,6 +30,7 @@ const NotFound: React.FC = () => {
       <div className="btn">
         <Link to="/">
           <button className="form-login-btn" type="submit" aria-label="Voltar para a página inicial">
+
             Voltar para a Home
           </button>
         </Link>

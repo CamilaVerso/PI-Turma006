@@ -15,7 +15,10 @@ interface FormData {
   corEtnia: string;
   situacaoOcupacional?: string;
   saude?: string;
+<<<<<<< HEAD
   matricula?: string;
+=======
+>>>>>>> 86f93586423b807871a0e83191c482f8dffca331
   endereco: {
     rua: string;
     complemento?: string;
@@ -27,7 +30,10 @@ interface FormData {
     telefone2?: string;
     telefone3?: string;
     email: string;
+<<<<<<< HEAD
     documento?: string;
+=======
+>>>>>>> 86f93586423b807871a0e83191c482f8dffca331
   };
   responsavel: {
     nome?: string;
@@ -68,7 +74,10 @@ const schema = yup.object().shape({
   corEtnia: yup.string().required("Cor/etnia é obrigatória"),
   situacaoOcupacional: yup.string(),
   saude: yup.string(),
+<<<<<<< HEAD
   matricula: yup.string(),
+=======
+>>>>>>> 86f93586423b807871a0e83191c482f8dffca331
   endereco: yup.object().shape({
     rua: yup.string().required("Rua é obrigatória"),
     bairro: yup.string().required("Bairro é obrigatório"),
@@ -79,7 +88,10 @@ const schema = yup.object().shape({
     telefone2: yup.string(),
     telefone3: yup.string(),
     email: yup.string().email().required("Email é obrigatório"),
+<<<<<<< HEAD
     documento: yup.string(),
+=======
+>>>>>>> 86f93586423b807871a0e83191c482f8dffca331
   }),
   responsavel: yup.object().shape({
     nome: yup.string(),

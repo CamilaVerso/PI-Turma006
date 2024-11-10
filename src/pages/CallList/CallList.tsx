@@ -81,6 +81,7 @@ const CallList: React.FC = () => {
          tabIndex={0} // Para navegabilidade com teclado
          onKeyDown={(e) => e.key === 'Enter' && handleCursoClick('ingles')}
          > 
+
           <Card sx={{ maxWidth: 360 }}>
             <CardActionArea>
               <CardMedia
