@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Button, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebaseConfig"; // Certifique-se de importar corretamente
 import { logoutUsuario } from "../../utils/authService";
-=======
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import { Link } from "react-router-dom";
->>>>>>> 86f93586423b807871a0e83191c482f8dffca331
+
 import "./header.css";
 import logo from "../../assets/Centro_de_formação.png";
 
@@ -45,15 +39,24 @@ const Header: React.FC = () => {
         </div>
 
         <div className="links-menu">
-<<<<<<< HEAD
           <nav aria-label="Menu principal">
             <Stack direction="row" spacing={2}>
               {isAuthenticated ? ( 
+                <>
+                <Link to="/resumo-estatistico">
+                  <Button
+                    className="custom-button"
+                    sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}
+                  >
+                    Resumo Estatístico
+                  </Button>
+                </Link>
                 <Button className="custom-button"
                 onClick={handleLogout}
                   sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
                   Sair
                 </Button>
+                </>
               ) : ( 
                 <>
               <Link to="/login">
@@ -70,24 +73,6 @@ const Header: React.FC = () => {
               </Link>
               </>
               )}
-=======
-          <nav>
-            <Stack direction="row" spacing={2}>
-              <Link to="/login">
-                <Button
-                  sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}
-                >
-                  Login
-                </Button>
-              </Link>
-              <Link to="/criar-conta">
-                <Button
-                  sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}
-                >
-                  Cadastro
-                </Button>
-              </Link>
->>>>>>> 86f93586423b807871a0e83191c482f8dffca331
             </Stack>
           </nav>
         </div>

@@ -10,6 +10,7 @@ import Footer from "../components/footer/Footer";
 import FormSent from "../pages/formSent/FormSent";
 import NotFound from "../pages/notFound/NotFound";
 import ChamadaFirestore from "../components/ChamadaFirestore";
+import ResumoEstatistico from "../pages/resumoEstatistico/ResumoEstatistico";
 
 
 const Router = () => {
@@ -25,6 +26,7 @@ const Router = () => {
         <Route path="/form-enviado" element={<FormSent />} />
         <Route path="/upload-dados" element={<ChamadaFirestore />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/resumo-estatistico" element={<ResumoEstatistico />} />
       </Routes>
       <Footer />
     </BrowserRouter>

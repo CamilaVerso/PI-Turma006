@@ -12,6 +12,7 @@ interface ResumoCurso {
 export const obterResumoEstatisticoV2 = onRequest(
   {region: "southamerica-east1"}, 
   async (request, response) => {
+    response.set("Access-Control-Allow-Origin", "*"); // Adiciona o cabeçalho CORS
   try {
     const cursos = ["ingles", "espanhol", "italiano"];
     const resumo: Record<string, ResumoCurso> = {};
