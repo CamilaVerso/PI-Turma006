@@ -5,10 +5,10 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { registrarUsuario } from "../../utils/authService"; // Função de registro
+import { registrarUsuario } from "../../utils/authService"; 
 import "./signUp.css";
 import logo from "../../assets/Centro de formação com sombra.png";
-import Footer from "../../components/footer/Footer"; // Importação do Footer
+
 
 interface FormData {
   name: string;
