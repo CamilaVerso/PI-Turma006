@@ -8,12 +8,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
-import { Link } from 'react-router-dom';
-import { db } from '../../firebaseConfig'; // Firebase configuração
-import { collection, addDoc } from 'firebase/firestore'; // Firebase Firestore
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, Button, Alert } from '@mui/material';
 
-// Definindo o tipo para os dados de alunos
 interface Aluno {
   NOME?: string;
   NUMERO?: string | number;
@@ -26,48 +22,109 @@ interface Aluno {
   ausente?: boolean;
 }
 
-// Função para carregar os dados JSON do curso
 const carregarDadosCurso = async (curso: string): Promise<Aluno[]> => {
   let dados: Aluno[] = [];
-  switch (curso) {
-    case 'ingles':
-      dados = (await import('../../aulas/ingles.json')).default;
-      break;
-    case 'espanhol':
-      dados = (await import('../../aulas/espanhol.json')).default;
-      break;
-    case 'italiano':
-      dados = (await import('../../aulas/italiano.json')).default;
-      break;
-    default:
-      throw new Error('Curso não encontrado');
+  try {
+    switch (curso) {
+      case 'ingles':
+        dados = (await import('../../aulas/ingles.json')).default;
+        break;
+      case 'espanhol':
+        dados = (await import('../../aulas/espanhol.json')).default;
+        break;
+      case 'italiano':
+        dados = (await import('../../aulas/italiano.json')).default;
+        break;
+      default:
+        throw new Error('Curso não encontrado');
+    }
+  } catch (error) {
+    console.error('Erro ao carregar os dados do curso:', error);
   }
   return dados;
 };
 
+const TEMPO_LIMITE = 10000; 
+
 const CallList: React.FC = () => {
   const [curso, setCurso] = useState<string | null>(null);
-  const [alunos, setAlunos] = useState<Aluno[]>([]); // Lista de alunos
+  const [alunos, setAlunos] = useState<Aluno[]>([]);
+  const [contagemPresente, setContagemPresente] = useState<number>(0);
+  const [contagemAusente, setContagemAusente] = useState<number>(0);
+  const [exibirContagem, setExibirContagem] = useState<boolean>(false);
+  const [alertaVisivel, setAlertaVisivel] = useState<boolean>(false);
+
+  const carregarPresencas = () => {
+    const presencasSalvas = localStorage.getItem("presencas");
+    const tempoSalvo = localStorage.getItem("tempoSalvo");
+
+    if (presencasSalvas && tempoSalvo) {
+      const agora = Date.now();
+      const tempoPassado = agora - parseInt(tempoSalvo);
+
+      if (tempoPassado < TEMPO_LIMITE) {
+        return JSON.parse(presencasSalvas);
+      } else {
+        localStorage.removeItem("presencas");
+        localStorage.removeItem("tempoSalvo");
+      }
+    }
+    return [];
+  };
+
+  const salvarPresenca = () => {
+    localStorage.setItem("presencas", JSON.stringify(alunos));
+    localStorage.setItem("tempoSalvo", Date.now().toString());
+    atualizarContagem();
+    setExibirContagem(true);
+    setAlertaVisivel(true);
+    
+    setTimeout(() => {
+      setAlertaVisivel(false);
+    }, 3000);
+  };
+
+  const atualizarContagem = () => {
+    const presentes = alunos.filter(aluno => aluno.presente).length;
+    const ausentes = alunos.filter(aluno => aluno.ausente).length;
+    setContagemPresente(presentes);
+    setContagemAusente(ausentes);
+  };
 
   useEffect(() => {
     const carregarDados = async () => {
       if (curso) {
         const dados = await carregarDadosCurso(curso);
-        setAlunos(dados); // Atualiza a lista de alunos
+        const presencasSalvas = carregarPresencas();
+        const alunosComPresenca = dados.map((aluno) => {
+          const alunoPresenca = presencasSalvas.find(
+            (presenca: Aluno) => presenca.MATRICULA === aluno.MATRICULA
+          );
+          return {
+            ...aluno,
+            ...alunoPresenca,
+          };
+        });
+        setAlunos(alunosComPresenca);
+        setExibirContagem(false); 
       }
     };
     carregarDados();
   }, [curso]);
 
   const handleCursoClick = (nomeCurso: string) => {
-    setCurso(nomeCurso); // Define o curso ao clicar na imagem
+    setCurso(nomeCurso);
   };
 
   const handleCheckboxChange = (index: number, type: 'presente' | 'ausente') => {
     setAlunos((prev) =>
       prev.map((aluno, i) =>
         i === index
-          ? { ...aluno, [type]: !aluno[type], ...(type === 'presente' ? { ausente: false } : { presente: false }) }
+          ? {
+            ...aluno,
+            [type]: !aluno[type],
+            ...(type === 'presente' ? { ausente: false } : { presente: false })
+          }
           : aluno
       )
     );
@@ -84,7 +141,7 @@ const CallList: React.FC = () => {
             role="button"
             onClick={() => handleCursoClick('ingles')}
             aria-label="Selecionar curso de Inglês"
-            tabIndex={0} // Para navegabilidade com teclado
+            tabIndex={0}
             onKeyDown={(e) => e.key === 'Enter' && handleCursoClick('ingles')}
           >
             <Card sx={{ maxWidth: 360 }}>
@@ -136,10 +193,23 @@ const CallList: React.FC = () => {
           </div>
         </div>
 
-        {/* Exibição da lista de presença dos alunos */}
         {curso && (
           <div>
-            <h2 className="titulo">Lista de Presença - {curso.charAt(0).toUpperCase() + curso.slice(1)}</h2>
+           <h2 className="titulo">Lista de Presença - {curso === 'ingles' ? 'Inglês' : curso.charAt(0).toUpperCase() + curso.slice(1)}</h2>
+
+            {alertaVisivel && (
+              <Alert severity="success" onClose={() => setAlertaVisivel(false)} sx={{ maxWidth: '400px', margin: '0 auto' }}>
+                Presença salva com sucesso!
+              </Alert>
+            )}
+
+            {exibirContagem && (
+              <div className="contagem-presenca">
+                <p>Presentes: {contagemPresente}</p>
+                <p>Ausentes: {contagemAusente}</p>
+              </div>
+            )}
+
             <TableContainer component={Paper} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
               <Table sx={{ minWidth: 700 }} aria-label="attendance table">
                 <TableHead>
@@ -172,6 +242,17 @@ const CallList: React.FC = () => {
                 </TableBody>
               </Table>
             </TableContainer>
+
+            <div>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={salvarPresenca}
+                sx={{ marginTop: '20px' }}
+              >
+                Salvar Presença
+              </Button>
+            </div>
           </div>
         )}
       </div>
