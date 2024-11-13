@@ -21,6 +21,9 @@ const Home: React.FC = () => {
             <h1>Centro de Formação Carlos Kopcak</h1>
             <h2>Imersão em Línguas</h2>
           </div>
+          
+          
+          
 
           <div className="container-cards">
             <div className="card" role="button">

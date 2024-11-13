@@ -1,5 +1,5 @@
 .container-home {
-  height: calc(100vh - 59px - 69px);
+  height: calc(100vh - 59px - 59px);
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;  
@@ -28,14 +28,15 @@ h2 {
   flex-wrap: wrap;
 }
 
-.card {
-  margin: 1rem;
-}
+/* .card {
+  margin: 0.25rem;
+} */
 
 .btn-moodle{
   width: 21.875rem;
     display: inline-block;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
+    
     color: #fff;
     border-radius: 8px;
     height: 2rem;

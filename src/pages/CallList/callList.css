@@ -6,6 +6,10 @@
   min-height: 100vh;
 }
 
+.titulo{
+  margin-top: 2rem;
+}
+
 .container-list {
   flex: 1;
   padding: 20px;

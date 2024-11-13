@@ -1,1 +1,251 @@
-[{"":1,"NOME":"LETICIA DE NADAI","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":5},{"":2,"NOME":"LAIS GUEDES MOURA","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":5},{"":3,"NOME":"VITORIA FREITAS","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":5},{"":4,"NOME":"ISABELLE BARBOSA DA SILVA","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":5},{"":5,"NOME":"Pablo Henrique","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":3},{"":6,"NOME":"wesley de andrade*","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":3},{"":7,"NOME":"CLARA DE MORAIS","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":7},{"":8,"NOME":"RHAYLA MELISSA VIEIRA DOS SANTOS","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":7},{"":9,"NOME":"Francieli da Silva Morera","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":8},{"":10,"NOME":"Ana Julia Barbosa do Nascimento","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":8},{"":11,"NOME":"Larissa rocha pereira da silva","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":2},{"":12,"NOME":"Thalita","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":2},{"":13,"NOME":"Nicolas Francisco de Oliveira Anacleto","DOCUMENTO":"","NUMERO":"","MATRICULA":"ok","TURMA":2},{"":14,"NOME":"kAMILY Roberta Lemos de Souza","DOCUMENTO":"","NUMERO":"","MATRICULA":"NA","TURMA":5},{"":15,"NOME":"Daniel Henrique Sampaio Macedo","DOCUMENTO":"","NUMERO":"","MATRICULA":"OK","TURMA":8},{"":16,"NOME":"Alessandro Miguel Palhares Quintiliano","DOCUMENTO":"","NUMERO":"11 9953 28308","MATRICULA":"ok","TURMA":2},{"":17,"NOME":"Eduardo mollinary Alves moura","DOCUMENTO":"","NUMERO":11958535130,"MATRICULA":"","TURMA":2},{"":18,"NOME":"Murilo Queiroz de Freitas","DOCUMENTO":"","NUMERO":"11 97298-9625","MATRICULA":"ok","TURMA":2},{"":19,"NOME":"Pâmela Thayara  de Souza Silva","DOCUMENTO":"","NUMERO":"11 95343 8799","MATRICULA":"ok","TURMA":2},{"":20,"NOME":"Pedro Isidoro Silva","DOCUMENTO":"","NUMERO":"11 98482-0592","MATRICULA":"","TURMA":2},{"":21,"NOME":"Rafael Silva de souza","DOCUMENTO":"","NUMERO":"11 91219-4069","MATRICULA":"","TURMA":2},{"":22,"NOME":"Victoria de Oliveira Alves","DOCUMENTO":"","NUMERO":"","MATRICULA":"","TURMA":2},{"":23,"NOME":"Bianca Sales Brito","DOCUMENTO":"","NUMERO":"11 96644-4838","MATRICULA":"ok","TURMA":2},{"":24,"NOME":"Mariah Eduarda Da Costa","DOCUMENTO":"","NUMERO":"11 985103031","MATRICULA":"ok","TURMA":2},{"":26,"NOME":"Lucas Agusto de Oliveira Barbosa","DOCUMENTO":"","NUMERO":"","MATRICULA":"","TURMA":2},{"":27,"NOME":"Thalita","DOCUMENTO":"","NUMERO":"11 98758-6654","MATRICULA":"","TURMA":2},{"":28,"NOME":"Nicolas Francisco de Oliveira Anacleto","DOCUMENTO":"","NUMERO":"11 97838-1848","MATRICULA":"","TURMA":2},{"":29,"NOME":"Murilo Anthony Castro","DOCUMENTO":"","NUMERO":"11 98075-7538","MATRICULA":"","TURMA":2},{"":30,"NOME":"Kauã Tavera","DOCUMENTO":"","NUMERO":"11 966130398","MATRICULA":"","TURMA":2},{"":31,"NOME":"Daniel Henrique Sampaio Macedo","DOCUMENTO":"","NUMERO":"","MATRICULA":"","TURMA":2},{"":32,"NOME":"Mateus Lúcio Soares Brasil","DOCUMENTO":"","NUMERO":11980715385,"MATRICULA":"ok","TURMA":2}]
+[
+    {
+      "": 1,
+      "NOME": "Leticia De Nadai",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 5
+    },
+    {
+      "": 2,
+      "NOME": "Lais Guedes Moura",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 5
+    },
+    {
+      "": 3,
+      "NOME": "Vitoria Freitas",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 5
+    },
+    {
+      "": 4,
+      "NOME": "Isabelle Barbosa Da Silva",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 5
+    },
+    {
+      "": 5,
+      "NOME": "Pablo Henrique",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 3
+    },
+    {
+      "": 6,
+      "NOME": "Wesley De Andrade*",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 3
+    },
+    {
+      "": 7,
+      "NOME": "Clara De Morais",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 7
+    },
+    {
+      "": 8,
+      "NOME": "Rhayla Melissa Vieira Dos Santos",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 7
+    },
+    {
+      "": 9,
+      "NOME": "Francieli Da Silva Morera",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 8
+    },
+    {
+      "": 10,
+      "NOME": "Ana Julia Barbosa Do Nascimento",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 8
+    },
+    {
+      "": 11,
+      "NOME": "Larissa Rocha Pereira Da Silva",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 12,
+      "NOME": "Thalita",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 13,
+      "NOME": "Nicolas Francisco De Oliveira Anacleto",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 14,
+      "NOME": "Kamily Roberta Lemos De Souza",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "NA",
+      "TURMA": 5
+    },
+    {
+      "": 15,
+      "NOME": "Daniel Henrique Sampaio Macedo",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "OK",
+      "TURMA": 8
+    },
+    {
+      "": 16,
+      "NOME": "Alessandro Miguel Palhares Quintiliano",
+      "DOCUMENTO": "",
+      "NUMERO": "11 9953 28308",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 17,
+      "NOME": "Eduardo Mollinary Alves Moura",
+      "DOCUMENTO": "",
+      "NUMERO": 11958535130,
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 18,
+      "NOME": "Murilo Queiroz De Freitas",
+      "DOCUMENTO": "",
+      "NUMERO": "11 97298-9625",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 19,
+      "NOME": "Pâmela Thayara De Souza Silva",
+      "DOCUMENTO": "",
+      "NUMERO": "11 95343 8799",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 20,
+      "NOME": "Pedro Isidoro Silva",
+      "DOCUMENTO": "",
+      "NUMERO": "11 98482-0592",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 21,
+      "NOME": "Rafael Silva De Souza",
+      "DOCUMENTO": "",
+      "NUMERO": "11 91219-4069",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 22,
+      "NOME": "Victoria De Oliveira Alves",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 23,
+      "NOME": "Bianca Sales Brito",
+      "DOCUMENTO": "",
+      "NUMERO": "11 96644-4838",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 24,
+      "NOME": "Mariah Eduarda Da Costa",
+      "DOCUMENTO": "",
+      "NUMERO": "11 985103031",
+      "MATRICULA": "ok",
+      "TURMA": 2
+    },
+    {
+      "": 26,
+      "NOME": "Lucas Agusto De Oliveira Barbosa",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 27,
+      "NOME": "Thalita",
+      "DOCUMENTO": "",
+      "NUMERO": "11 98758-6654",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 28,
+      "NOME": "Nicolas Francisco De Oliveira Anacleto",
+      "DOCUMENTO": "",
+      "NUMERO": "11 97838-1848",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 29,
+      "NOME": "Murilo Anthony Castro",
+      "DOCUMENTO": "",
+      "NUMERO": "11 98075-7538",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 30,
+      "NOME": "Kauã Tavera",
+      "DOCUMENTO": "",
+      "NUMERO": "11 966130398",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 31,
+      "NOME": "Daniel Henrique Sampaio Macedo",
+      "DOCUMENTO": "",
+      "NUMERO": "",
+      "MATRICULA": "",
+      "TURMA": 2
+    },
+    {
+      "": 32,
+      "NOME": "Mateus Lúcio Soares Brasil",
+      "DOCUMENTO": "",
+      "NUMERO": 11980715385,
+      "MATRICULA": "ok",
+      "TURMA": 2
+    }
+  ]
+  
