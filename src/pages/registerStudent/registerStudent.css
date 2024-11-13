@@ -85,7 +85,7 @@ label {
 }
 
 .titulos-section {
-  width: 100%; /* Para garantir que o contêiner de títulos também ocupe toda a linha */
+  width: 100%; 
 }
 
 .titulos > label {

@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
-import { Link, useNavigate } from "react-router-dom"; // Adicione o useNavigate
-import { loginUsuario } from "../../utils/authService"; // Função de login
+import { Link, useNavigate } from "react-router-dom"; 
+import { loginUsuario } from "../../utils/authService"; 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import logo from "../../assets/Centro de formação com sombra.png";
-import { Alert, Stack } from "@mui/material";
+import { Alert } from "@mui/material";
 import  AlertTitle from "@mui/material/AlertTitle";
 
 const Login: React.FC = () => {
-  // Estados para armazenar o e-mail e a senha do usuário
+  
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
   const [showAlert, setShowAlert] = useState(true);
   const [nomeUsuario, setNomeUsuario] = useState<string | null>(null);
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     if (erro) {
-      // Define o timer para sumir gradualmente
-      const hideTimeout = setTimeout(() => setShowAlert(false), 5000); // diminui a opacidade
-      const removeTimeout = setTimeout(() => setErro(''), 10000); // remove o alerta após 10 segundos
+      
+      const hideTimeout = setTimeout(() => setShowAlert(false), 5000); 
+      const removeTimeout = setTimeout(() => setErro(''), 10000); 
 
       return () => {
         clearTimeout(hideTimeout);
@@ -30,17 +30,17 @@ const Login: React.FC = () => {
     }
   }, [erro]);
 
-  // Função chamada ao submeter o formulário de login
+  
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();  // Previne o comportamento padrão do formulário
+    e.preventDefault();  
     try {
-      const user = await loginUsuario(email, senha);  // Faz o login utilizando o serviço de autenticação
+      const user = await loginUsuario(email, senha); 
       const usuarioDoc = await getDoc(doc(db, "usuarios", user.uid));
       if (usuarioDoc.exists()) {
         setNomeUsuario(usuarioDoc.data().nome);
         alert(`Bem-vindo, ${usuarioDoc.data().nome}!`);
       }     
-      navigate('/'); // Redireciona para a página principal
+      navigate('/'); 
     } catch (error: any) {
       if (error.code === 'auth/user-not-found') {
         setErro('Usuário não encontrado!')
@@ -71,7 +71,7 @@ const Login: React.FC = () => {
               type="email" 
               placeholder="Digite seu e-mail" 
               value={email}
-              onChange={(e) => setEmail(e.target.value)} // Atualiza o estado de e-mail
+              onChange={(e) => setEmail(e.target.value)} 
               required
               aria-required="true"
               aria-describedby="erro-email"
@@ -82,7 +82,7 @@ const Login: React.FC = () => {
               type="password" 
               placeholder="Digite sua Senha" 
               value={senha}
-              onChange={(e) => setSenha(e.target.value)} // Atualiza o estado de senha
+              onChange={(e) => setSenha(e.target.value)} 
               required
               aria-required="true"
               aria-describedby="erro-senha"

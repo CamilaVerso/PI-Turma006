@@ -23,11 +23,11 @@
 
 .idioma {
   display: flex;
-  align-items: center; /* Alinha os itens verticalmente ao centro */
+  align-items: center; 
 }
 
 .idioma input {
-  margin-right: 8px; /* Espaço entre o checkbox e o texto */
+  margin-right: 8px; 
 }
 
 #select-perfil{
