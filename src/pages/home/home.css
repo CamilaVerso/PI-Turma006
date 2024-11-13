@@ -28,15 +28,9 @@ h2 {
   flex-wrap: wrap;
 }
 
-/* .card {
-  margin: 0.25rem;
-} */
-
 .btn-moodle{
   width: 21.875rem;
     display: inline-block;
-    /* margin-top: 2rem; */
-    
     color: #fff;
     border-radius: 8px;
     height: 2rem;

@@ -22,12 +22,12 @@ const RegisterStudent: React.FC = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Envia os dados do aluno para a subcoleção do Firestore com base no curso selecionado
+      
       await cadastrarAluno(data.cursoMatriculado, {
         nome: data.nome,
         documento: data.endereco?.documento || "",
         numero: data.endereco?.telefone1 || "",
-        matricula: data.matricula || "", // Certifique-se de que "matricula" existe em FormData
+        matricula: data.matricula || "", 
       });
 
         navigate("/form-enviado");
