@@ -1,13 +1,13 @@
 import "./notFound.css";
 import { Link } from "react-router-dom";
-import logo from "../../assets/Centro de formação com sombra.png";
-import construction from "../../assets/undraw_Towing_re_wesa.png";
+import logo from "../../assets/Centro de formação com sombra.webp";
+import construction from "../../assets/undraw_Towing_re_wesa.webp";
 
 const NotFound: React.FC = () => {
   return (
     <main className="container-notFound"
-    aria-label="Página em construção, redireciona para a página inicial"
-    aria-live="polite"
+      aria-label="Página em construção, redireciona para a página inicial"
+      aria-live="polite"
     >
       <div className="img-notFound">
         <img
@@ -16,9 +16,12 @@ const NotFound: React.FC = () => {
           title="Centro de Formação Carlos Kopcka"
         />
       </div>
-      <h1>Página em construção...</h1>
+      <h1>Página não encontrada.</h1>
       <p className="text-not">
-        Logo, logo aqui terá funcionalidades incríveis!
+        Não conseguimos encontrar o que estava procurando 🙁
+      </p>
+      <p className="text-not">
+        Mas não fique triste, clique no botão e retorne para a tela inicial 😉
       </p>
       <div className="img-g">
         <img

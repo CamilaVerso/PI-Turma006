@@ -5,8 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
-import cadastrar from "../../assets/undraw_Account_re_o7id.png";
-import lista from "../../assets/undraw_Collaboration_re_vyau.png";
+import cadastrar from "../../assets/undraw_Account_re_o7id.webp";
+import lista from "../../assets/undraw_Collaboration_re_vyau.webp";
 import "./home.css";
 
 const Home: React.FC = () => {
@@ -21,9 +21,9 @@ const Home: React.FC = () => {
             <h1>Centro de Formação Carlos Kopcak</h1>
             <h2>Imersão em Línguas</h2>
           </div>
-          
-          
-          
+
+
+
 
           <div className="container-cards">
             <div className="card" role="button">

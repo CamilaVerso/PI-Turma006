@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro-aluno" element={<RegisterStudent />} />
-        <Route path="/lista-de-chamada" element={<CallList />} />
+        <Route path="/lista-de-presenca" element={<CallList />} />
         <Route path="/criar-conta" element={<SignUp />} />
         <Route path="/form-enviado" element={<FormSent />} />
         <Route path="/upload-dados" element={<ChamadaFirestore />} />

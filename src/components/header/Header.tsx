@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebaseConfig"; // Certifique-se de importar corretamente
+import { auth } from "../../firebaseConfig";
 import { logoutUsuario } from "../../utils/authService";
 
 import "./header.css";
-import logo from "../../assets/Centro_de_formação.png";
+import logo from "../../assets/Centro_de_formação.webp";
 
 const Header: React.FC = () => {
 
@@ -14,9 +14,9 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setIsAuthenticated(!!user); // Define como verdadeiro se houver um usuário logado
+      setIsAuthenticated(!!user);
     });
-    return unsubscribe; // Limpeza para evitar vazamento de memória
+    return unsubscribe;
   }, []);
 
   const handleLogout = async () => {
@@ -41,37 +41,37 @@ const Header: React.FC = () => {
         <div className="links-menu">
           <nav aria-label="Menu principal">
             <Stack direction="row" spacing={2}>
-              {isAuthenticated ? ( 
+              {isAuthenticated ? (
                 <>
-                <Link to="/resumo-estatistico">
-                  <Button
-                    className="custom-button"
-                    sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}
-                  >
-                    Resumo Estatístico
+                  <Link to="/resumo-estatistico">
+                    <Button
+                      className="custom-button"
+                      sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}
+                    >
+                      Resumo Estatístico
+                    </Button>
+                  </Link>
+                  <Button className="custom-button"
+                    onClick={handleLogout}
+                    sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
+                    Sair
                   </Button>
-                </Link>
-                <Button className="custom-button"
-                onClick={handleLogout}
-                  sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
-                  Sair
-                </Button>
                 </>
-              ) : ( 
+              ) : (
                 <>
-              <Link to="/login">
+                  <Link to="/login">
                     <Button className="custom-button"
                       sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
                       Login
-                    </Button>   
-              </Link>
-              <Link to="/criar-conta">
-                <Button className="custom-button"
-                  sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
-                  Cadastro
-                </Button>
-              </Link>
-              </>
+                    </Button>
+                  </Link>
+                  <Link to="/criar-conta">
+                    <Button className="custom-button"
+                      sx={{ color: "#1B4BD2", "&:hover": { color: "#E43858" } }}>
+                      Cadastro
+                    </Button>
+                  </Link>
+                </>
               )}
             </Stack>
           </nav>
