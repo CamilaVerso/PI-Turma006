@@ -46,7 +46,7 @@ const Home: React.FC = () => {
               </Link>
             </div>
             <div className="card" role="button">
-              <Link to="/lista-de-chamada" aria-label="Página de lista de presença">
+              <Link to="/lista-de-presenca" aria-label="Página de lista de presença">
 
                 <Card sx={{ maxWidth: 360 }}>
                   <CardActionArea>
