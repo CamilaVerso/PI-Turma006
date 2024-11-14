@@ -5,9 +5,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { registrarUsuario } from "../../utils/authService"; 
+import { registrarUsuario } from "../../utils/authService";
 import "./signUp.css";
-import logo from "../../assets/Centro de formação com sombra.png";
+import logo from "../../assets/Centro de formação com sombra.webp";
 
 
 interface FormData {

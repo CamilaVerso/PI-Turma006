@@ -1,5 +1,5 @@
-import ingles from "../../assets/estados-unidos.png";
-import espanhol from "../../assets/espanha.png";
+import ingles from "../../assets/estados-unidos.webp";
+import espanhol from "../../assets/espanha.webp";
 import italia from "../../assets/italia.png";
 import "./callList.css";
 import React, { useState, useEffect } from "react";
@@ -44,7 +44,7 @@ const carregarDadosCurso = async (curso: string): Promise<Aluno[]> => {
   return dados;
 };
 
-const TEMPO_LIMITE = 10000; 
+const TEMPO_LIMITE = 10000;
 
 const CallList: React.FC = () => {
   const [curso, setCurso] = useState<string | null>(null);
@@ -78,7 +78,7 @@ const CallList: React.FC = () => {
     atualizarContagem();
     setExibirContagem(true);
     setAlertaVisivel(true);
-    
+
     setTimeout(() => {
       setAlertaVisivel(false);
     }, 3000);
@@ -106,7 +106,7 @@ const CallList: React.FC = () => {
           };
         });
         setAlunos(alunosComPresenca);
-        setExibirContagem(false); 
+        setExibirContagem(false);
       }
     };
     carregarDados();
@@ -195,7 +195,7 @@ const CallList: React.FC = () => {
 
         {curso && (
           <div>
-           <h2 className="titulo">Lista de Presença - {curso === 'ingles' ? 'Inglês' : curso.charAt(0).toUpperCase() + curso.slice(1)}</h2>
+            <h2 className="titulo">Lista de Presença - {curso === 'ingles' ? 'Inglês' : curso.charAt(0).toUpperCase() + curso.slice(1)}</h2>
 
             {alertaVisivel && (
               <Alert severity="success" onClose={() => setAlertaVisivel(false)} sx={{ maxWidth: '400px', margin: '0 auto' }}>
