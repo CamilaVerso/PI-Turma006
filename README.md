@@ -155,6 +155,13 @@ Este projeto tem como requisito o *deploy*, escolhemos então fazê-lo pelo *Ver
   Na tela inicial, foi implementado o botão "Área do Professor", que permite aos professores acessar um perfil específico no *Moodle*.</br>
    *Moodle* é uma plataforma de gestão de aprendizagem amplamente utilizada para apoiar o ensino e facilitar o compartilhamento de conteúdos educacionais. Com essa funcionalidade, os professores são redirecionados diretamente para seu espaço de perfil, onde podem organizar e disponibilizar materiais que serão utilizados nas aulas, promovendo uma melhor organização e acesso aos recursos de ensino.
 
+   Obs.: Para visualizar o perfil criado no Moodle, você pode acessá-lo após clicar no botão "Área do Professor" na tela inicial. Utilize as seguintes credenciais:
+
+- **Nome de usuário**: teste  
+- **Senha**: Ab@123456  
+
+Esses dados de acesso permitem explorar o perfil como visualizado pelo professor, facilitando o entendimento das funcionalidades disponíveis.
+
   Abaixo o resultado da tela *home* com o novo botão
   <img src="./src/assets/Tela_home_area_prof.webp" alt="tela home atualizada com o botão que redireciona para o site Moodle" title="tela Home">
 ***
@@ -192,6 +199,13 @@ Na tela de lista de chamada, ao clicar na imagem que representa um dos idiomas (
 ### 8.4 Tela Resumo Estatístico 
 
 Após realizar o *login*, os usuários têm acesso a um resumo estatístico que apresenta a quantidade de alunos matriculados em cada curso de idioma (Inglês, Espanhol e Italiano). As informações são atualizadas em tempo real por meio de uma chamada de API via *Firestore Functions*. Para facilitar a interpretação dos dados, as informações são exibidas em um gráfico de pizza, proporcionando uma visão rápida da distribuição dos alunos, além de uma tabela detalhada que oferece uma análise completa e precisa.
+
+Obs.: Para acessar a página de resumo estatístico, utilize as seguintes credenciais de login:
+
+- **E-mail**: teste5@teste.com  
+- **Senha**: 123654  
+
+Esses dados de acesso permitem visualizar as informações de quantidade de alunos matriculados em cada curso de idioma, apresentadas em gráfico de pizza e tabela, conforme descrito na funcionalidade.
 
 <img src="./src/assets/Tela_resumo_estatistico.webp" alt="tela de lista de presença" title="tela de listagem dos alunos matriculados por curso">
 
